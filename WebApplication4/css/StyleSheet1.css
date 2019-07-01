@@ -21,13 +21,13 @@
 .info {
     float: left;
     width: 60%;
-    height: 50%
+    height: 70%
 }
 .btncol {
     
     width: 40%;
     float: right;
-    height:50%;
+    height:70%;
 }
 .button {
     position:center;
@@ -41,11 +41,11 @@
 }
 .disp {
     background-color: aqua;
-    height: 20%;
+    height: 30%;
     width: 100%;
 }
 .search {
-    height:70%;
+    height:60%;
     width: 100%;
     top:40%;
 }
@@ -55,9 +55,10 @@
 }
 
 .grid {
-    bottom:0%;
+    bottom: 0%;
     overflow: scroll;
+    position: static;
     width: 100%;
-    height:50%;
+    height: 30%;
     float: left;
 }

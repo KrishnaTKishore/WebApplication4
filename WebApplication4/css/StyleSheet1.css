@@ -1,0 +1,63 @@
+﻿
+.bodyh{
+   position:fixed;
+      left:0;
+      top:0;
+      margin:0;
+    width: 100%;
+    height: 100%;
+}
+.combo1 {
+    float: left;
+    height: 100%;
+    width: 60%;
+}
+.combo {
+    float: right;
+    height: 100%;
+    width: 40%;
+    bottom:0%;
+}
+.info {
+    float: left;
+    width: 60%;
+    height: 50%
+}
+.btncol {
+    
+    width: 40%;
+    float: right;
+    height:50%;
+}
+.button {
+    position:center;
+    width: 90%;
+    height: 19%;
+}
+.notification {
+    background-color:tomato;
+    height:10%;
+    width: 100%;
+}
+.disp {
+    background-color: aqua;
+    height: 20%;
+    width: 100%;
+}
+.search {
+    height:70%;
+    width: 100%;
+    top:40%;
+}
+.table {
+    width: 100%;
+    height: 100%
+}
+
+.grid {
+    bottom:0%;
+    overflow: scroll;
+    width: 100%;
+    height:50%;
+    float: left;
+}

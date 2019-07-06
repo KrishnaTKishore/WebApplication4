@@ -67,6 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DMSdb.mdf" />
+    <Content Include="App_Data\DMSdb_log.ldf">
+      <DependentUpon>DMSdb.mdf</DependentUpon>
+    </Content>
+    <Content Include="DCfirstpg.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HtmlPage1.html" />
     <Content Include="css\StyleSheet1.css" />
@@ -74,6 +79,13 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DCfirstpg.aspx.cs">
+      <DependentUpon>DCfirstpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCfirstpg.aspx.designer.cs">
+      <DependentUpon>DCfirstpg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -96,7 +108,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

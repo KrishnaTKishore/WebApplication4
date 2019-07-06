@@ -404,7 +404,7 @@ namespace WebApplication4
 
         protected void Search_Click(object sender, EventArgs e)
         {
-            int count = 0;
+           
             int c = 0;
             if (con.State == ConnectionState.Closed)
             {
@@ -415,7 +415,7 @@ namespace WebApplication4
             if ((seausrIDtb.Text == "") && (seausrFNtb.Text == "") && (seausrLNtb.Text == "") && (seausrdesgtb.SelectedIndex == 0) && (ddlseaprj.SelectedIndex == 0) && (ddlseacomp.SelectedIndex == 0))
             {
                 notify.Text = "<span style= 'color:red'>\n Please enter valid data for searching...no values entered for searching </span>";
-                count++;
+                
             }
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;

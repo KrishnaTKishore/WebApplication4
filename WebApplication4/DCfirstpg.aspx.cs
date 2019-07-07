@@ -13,5 +13,10 @@ namespace WebApplication4
         {
 
         }
+
+        protected void add_prj_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("DCprjpg.aspx");
+        }
     }
 }

@@ -12,16 +12,19 @@ namespace WebApplication4
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        //establishing connection
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DMSdb.mdf;Integrated Security=True");
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            //the text box type is made into password via code so that th evalues are not encrypted
             usrpass_tb.Attributes["type"] = "password";
-            //Disp();
+            
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
+            //clears notify
             if (IsPostBack)
             {
                 notify.Text = "";
@@ -29,7 +32,7 @@ namespace WebApplication4
             if (!IsPostBack)
             {
                 Disp();
-
+                //new fields adding in ddl is hidden
                 PlaceHolder1.Visible = false;
                 addnewdesbtn.Visible = false;
                 PlaceHolder2.Visible = false;
@@ -48,7 +51,7 @@ namespace WebApplication4
                 };
                 try
                 {
-                    //all the unique designations are shown in the drop down box 
+                    //all the unique designations are shown in the drop down box in add/update part
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -57,6 +60,8 @@ namespace WebApplication4
                     usrddldes_tb.DataTextField = "user_designation";
                     usrddldes_tb.DataValueField = "user_designation";
                     usrddldes_tb.DataBind();con.Close();
+                    //all the unique designations are shown in the drop down box in search part
+
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -81,6 +86,7 @@ namespace WebApplication4
                 {
                     con.Open();
                 }
+                //all unique project names are retrieved from database
                 String strQuery1 = "select distinct prj_name from project";
                 SqlCommand cmd1 = new SqlCommand
                 {
@@ -90,7 +96,8 @@ namespace WebApplication4
                 };
                 try
                 {
-                    //all the unique designations are shown in the drop down box 
+                    //all the unique projects are shown in the drop down box in add/update part
+
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -100,6 +107,8 @@ namespace WebApplication4
                     usrddlprj.DataValueField = "prj_name";
                     usrddlprj.DataBind();
                     con.Close();
+                    //all the unique projects are shown in the drop down box in search part
+
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -124,6 +133,7 @@ namespace WebApplication4
                 {
                     con.Open();
                 }
+                //all unique company names are retrieved from the database
                 String strQuery2 = "select distinct company_name from users";
                 SqlCommand cmd2 = new SqlCommand
                 {
@@ -133,7 +143,7 @@ namespace WebApplication4
                 };
                 try
                 {
-                    //all the unique designations are shown in the drop down box 
+                    //all the unique company names are shown in the drop down box in add/update part
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -143,6 +153,8 @@ namespace WebApplication4
                     usrddlcmpny.DataValueField = "company_name";
                     usrddlcmpny.DataBind();
                     con.Close();
+                    //all the unique company names are shown in the drop down box in select part
+
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -166,6 +178,7 @@ namespace WebApplication4
 
 
         }
+        //this function helps in displaying the record based on the user_id 
         public void Disp_id()
         {
             if (con.State == ConnectionState.Closed)
@@ -174,6 +187,7 @@ namespace WebApplication4
             }
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
+            //details except password is diplayed in the gridview
             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no ,user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no from users where user_id ='" + usrid_tb.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -181,7 +195,7 @@ namespace WebApplication4
             da.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
-            //GridView1.Columns[9].Visible = false;
+            //counting the number of records displayed
             TextBox1.Text = Convert.ToString(dt.Rows.Count);
             con.Close();
 
@@ -261,16 +275,19 @@ namespace WebApplication4
         {
             if ((newusrdesgtb.Text == "") || (newusrdesgtb.Text == " "))
             {
-                notify.Text = "<span style= 'color:green'>enter a valid designation</style>";
+                notify.Text = "<span style= 'color:red'>enter a valid designation</span>";
 
             }
-            usrddldes_tb.Items.Insert(usrddldes_tb.Items.Count - 1, ((TextBox)PlaceHolder1.FindControl("newusrdesgtb")).Text);
-            notify.Text = "<span style= 'color:green'>the designation is successfully inserted into dropdown menu</style>";
-            usrddldes_tb.SelectedValue = newusrdesgtb.Text;
-            PlaceHolder1.Visible = false;
-            newusrdesgtb.Visible = false;
-            addnewdesbtn.Visible = false;
-            usrddldes_tb.Visible = true;
+            else
+            {
+                usrddldes_tb.Items.Insert(usrddldes_tb.Items.Count - 1, ((TextBox)PlaceHolder1.FindControl("newusrdesgtb")).Text);
+                notify.Text = "<span style= 'color:green'>the designation is successfully inserted into dropdown menu</span>";
+                usrddldes_tb.SelectedValue = newusrdesgtb.Text;
+                PlaceHolder1.Visible = false;
+                newusrdesgtb.Visible = false;
+                addnewdesbtn.Visible = false;
+                usrddldes_tb.Visible = true;
+            }
         }
 
         protected void addnewcompbtn_Click(object sender, EventArgs e)
@@ -278,7 +295,7 @@ namespace WebApplication4
             if (newcomptb.Text != " ")
             {
                 usrddlcmpny.Items.Insert(usrddlcmpny.Items.Count - 1, ((TextBox)PlaceHolder2.FindControl("newcomptb")).Text);
-                notify.Text = "<span style= 'color:green'>the company name is successfully inserted into dropdown menu</style>";
+                notify.Text = "<span style= 'color:green'>the company name is successfully inserted into dropdown menu</span>";
                 usrddlcmpny.SelectedValue = newcomptb.Text;
                 PlaceHolder2.Visible = false;
                 newcomptb.Visible = false;
@@ -287,7 +304,7 @@ namespace WebApplication4
                 usrddlcmpny.Visible = true;
             }
             else
-                notify.Text = "you can not add invalid company names into the column";
+                notify.Text = "<span style= 'color:red'>you can not add invalid company names into the column</span>";
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -324,7 +341,7 @@ namespace WebApplication4
             //if the id is not matching with any record, app. message is displayed
             if (TextBox1.Text == "0")
             {
-                notify.Text = "\n<span color:'red'> the record with ID = " + usrid_tb.Text + " is not found..deleting is not possible if the id does not match</span>";
+                notify.Text = "\n<span style='color:red'> the record with ID = " + usrid_tb.Text + " is not found..deleting is not possible if the id does not match any record</span>";
             }
             else
             {
@@ -336,6 +353,11 @@ namespace WebApplication4
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "delete from users where user_id ='" + usrid_tb.Text + "'";
                 cmd.ExecuteNonQuery();
+                Disp_id();
+                if (TextBox1.Text == "0")
+                {
+                    notify.Text = "<span style= 'color:green'>\n user details deleted </span>";
+                }
                 Disp();
                 if (con.State == ConnectionState.Open)
                 {
@@ -343,6 +365,7 @@ namespace WebApplication4
                 }
             }
             Clear_Click(this, new EventArgs());
+            usrid_tb.Focus();
 
         }
 
@@ -376,7 +399,11 @@ namespace WebApplication4
                 Clear_Click(this, new EventArgs());
                 if (con.State == ConnectionState.Open)
                     con.Close();
+                Clear_Click(this, new EventArgs());
             }
+            
+            usrid_tb.Focus();
+
         }
 
         protected void usrddlcmpny_SelectedIndexChanged(object sender, EventArgs e)
@@ -387,6 +414,13 @@ namespace WebApplication4
                 // usrddlcmpny.Visible = true;
                 newcomptb.Visible = true;
                 addnewcompbtn.Visible = true;
+            }
+            if (usrddlcmpny.SelectedValue != "other")
+            {
+                PlaceHolder2.Visible = false;
+                // usrddlcmpny.Visible = true;
+                newcomptb.Visible = false;
+                addnewcompbtn.Visible = false;
             }
 
         }
@@ -399,6 +433,13 @@ namespace WebApplication4
                 // usrddldes_tb.Visible = true;
                 newusrdesgtb.Visible = true;
                 addnewdesbtn.Visible = true;
+            }
+            if (usrddldes_tb.SelectedValue != "other")
+            {
+                PlaceHolder1.Visible = false;
+                // usrddldes_tb.Visible = true;
+                newusrdesgtb.Visible = false;
+                addnewdesbtn.Visible = false;
             }
         }
 
@@ -784,8 +825,18 @@ namespace WebApplication4
 
         protected void ddlseacomp_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+      
         }
+
+     /*   protected void shw_Click(object sender, EventArgs e)
+        {
+            usrpass_tb.Attributes["type"] = "SingleLine";
+           
+       
+            //System.Threading.Thread.Sleep(5000);
+
+           // usrpass_tb.Attributes["type"] = "Password";
+        }*/
     }
 
     }

@@ -10,7 +10,7 @@
 namespace WebApplication4 {
     
     
-    public partial class DCfirstpg {
+    public partial class ADfirstpg {
         
         /// <summary>
         /// form1 control.
@@ -22,30 +22,30 @@ namespace WebApplication4 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// add_prj control.
+        /// empdbbn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button add_prj;
+        protected global::System.Web.UI.WebControls.Button empdbbn;
         
         /// <summary>
-        /// doc_db control.
+        /// logdbbn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button doc_db;
+        protected global::System.Web.UI.WebControls.Button logdbbn;
         
         /// <summary>
-        /// vw_prj control.
+        /// prjdbbn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button vw_prj;
+        protected global::System.Web.UI.WebControls.Button prjdbbn;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication4.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ADusrpg.aspx.cs" Inherits="WebApplication4.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -6,114 +6,192 @@
 <head runat="server">
   <title></title>
     <script>
-    function validation()								 
-{ 
-        var id = document.getElementById("usrid_tb");
-        var fn=document.getElementById("usrfname_tb");
-        var mn=document.getElementById("usrmname_tb");
-        var ln = document.getElementById("usrlname_tb");
-        var a = document.getElementById("usrddldes_tb");
-        var b = document.getElementById("usrddlcmpny");
-        var c = document.getElementById("usrddlprj");
-        var des =a.options[a.selectedIndex].value;
-        var cmp = b.options[b.selectedIndex].value;
-        var prj = c.options[c.selectedIndex].value;
-        var mail = document.getElementById("usremail_tb");
-        //var no = document.getElementById("usrmobno_tb");
-        var pass = document.getElementById("usrpass_tb");
-        var alpha = /^[A-Za-z]+$/;
-        var strongRegex =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+        function validation() {
+            var id = document.getElementById("usrid_tb");
+            var fn = document.getElementById("usrfname_tb");
+            var mn = document.getElementById("usrmname_tb");
+            var ln = document.getElementById("usrlname_tb");
+            var a = document.getElementById("usrddldes_tb");
+            var b = document.getElementById("usrddlcmpny");
+            var c = document.getElementById("usrddlprj");
+            var des = a.options[a.selectedIndex].value;
+            var cmp = b.options[b.selectedIndex].value;
+            var prj = c.options[c.selectedIndex].value;
+            var mail = document.getElementById("usremail_tb");
+            var pass = document.getElementById("usrpass_tb");
+            var no = document.getElementById("usrmobnotb");
+            
+            if ((id.value == "") || (id.value == " ")) {
+                window.alert("Please enter user id.");
+                id.focus();
+                return false;
+            }
 
-        if ((id.value == "") || (id.value == " ")) {
-            window.alert("Please enter user id.");
-            id.focus();
-            return false;
-        }
+             if ((fn.value == "") || (fn.value == " ")) {
+                window.alert("Please enter first name.");
+                fn.focus();
+                return false;
+            }
+            
+            else {
+                    for (var i = 0; i < fn.value.length; i++) {
+                        if (!((fn.value.charAt(i) >= 'a' && fn.value.charAt(i) <= 'z') || (fn.value.charAt(i) >= 'A' && fn.value.charAt(i) <= 'Z'))) {
+                            window.alert("enter alphabets only in first name field");
+                            fn.focus();
+                            return false;
+                        }
+                    }
+                }
+            
+            if (mn.value != "") {
+                for (var j = 0; j < mn.value.length;j++) {
+                    if (!((mn.value.charAt(j) >= 'a' && mn.value.charAt(j) <= 'z') || (mn.value.charAt(j) >= 'A' && mn.value.charAt(j) <= 'Z'))) {
+                        window.alert("enter alphabets only in middle name field");
+                        mn.focus();
+                        return false;
+                    }
+                }
+            }
+         
+            if ((ln.value == "") || (ln.value == " ")) {
+                window.alert("Please enter last name.");
+                ln.focus();
+                return false;
+            }
+            else {
+                for (var i = 0; i < ln.value.length; i++) {
+                    if (!((ln.value.charAt(i) >= 'a' && ln.value.charAt(i) <= 'z') || (ln.value.charAt(i) >= 'A' && ln.value.charAt(i) <= 'Z'))) {
+                        window.alert("enter apphabets only in last name field");
+                        return false;
+                    }
+                }
+            }
 
-        else if (fn.value == "" || (fn.value == " ")) {
-            window.alert("Please enter first name.");
-            fn.focus();
-            return false;
-        }
-
-            /*
-
-        else if (fn.value.patterMismatch(alpha)) {
-            window.alert("Please enter valid first name.");
-            fn.focus();
-            return false;
-        }
      
+            if ((b.selectedIndex <= 1) || (cmp == "other")) {
+                window.alert("Please enter valid company.");
+                b.focus();
+                return false;
+            }
+           if (c.selectedIndex == 0) {
+                window.alert("Please enter valid project.");
+                c.focus();
+                return false;
+            }
+             if ((a.selectedIndex <= 1) || (des == "other")) {
+                window.alert("Please enter valid designation.");
+                a.focus();
+                return false;
+            }
+            if (mail.value == "") {
+                window.alert("Please enter a valid e-mail address.");
+                mail.focus();
+                return false;
+            }
+
+             if (mail.value.indexOf("@", 0) < 0) {
+                window.alert("Please enter a valid e-mail address.");
+                mail.focus();
+                return false;
+            }
+
+            if (mail.value.indexOf(".", 0) < 0) {
+                window.alert("Please enter a valid e-mail address.");
+                mail.focus();
+
+                return false;
+            }
+
+            if (no.value.length != 10) {
+                window.alert("Please enter a valid phone no.");
+                no.focus();
+
+                return false;
+            }
+
+            if ((pass.value == "") || (pass.value == " ")) {
+                window.alert("Please enter valid password.");
+                pass.focus();
+
+                return false;
+            }
+
+            if (pass.value.length < 8) {
 
 
-       /* else if ((mn.value!="")&&(mn.value.patterMismatch(alpha))) {
-            window.alert("Please enter valid middle name.");
-            mn.focus();
+                window.alert("password must be of minimum length 8 ")
+                pass.focus();
+                return false;
 
-            return false;
-        }*/
-        else if ((ln.value == "") || (ln.value == " ")) {
-            window.alert("Please enter last name.");
-            ln.focus();
-            return false;
-        }
-      /*  else if (ln.value.patterMismatch(alpha)) {
-            window.alert("Please enter valid last name.");
-            ln.focus();
-            return false;
-        }*/
-              else if ((b.selectedIndex <= 1) || (cmp == "other")) {
-            window.alert("Please enter valid company.");
-            b.focus();
-            return false;
-        }
-               else if (c.selectedIndex == 0) {
-            window.alert("Please enter valid project.");
-            c.focus();
-            return false;
-        }
-              else if ((a.selectedIndex <= 1) || (des == "other")) {
-            window.alert("Please enter valid designation.");
-            a.focus();
-            return false;
-        }
-        else if (mail.value == "") {
-            window.alert("Please enter a valid e-mail address.");
-            mail.focus();
-            return false;
-        }
+            }
+             if (pass.value != "") {
+                var c = 0;
+                var a = 0;
+                var b = 0;
+                 var d = 0;
+                 var s = 0;
 
-        else if (mail.value.indexOf("@", 0) < 0) {
-            window.alert("Please enter a valid e-mail address.");
-            mail.focus();
-            return false;
-        }
+                for (var i = 0; i < pass.value.length; i++) {
+                    if (pass.value[i] >= 'a' && pass.value[i] <= 'z') {
+                        c++;
 
-        else if (mail.value.indexOf(".", 0) < 0) {
-            window.alert("Please enter a valid e-mail address.");
-            mail.focus();
+                    }
+                    else if (pass.value[i] >= 'A' && pass.value[i] <= 'Z') {
+                        a++;
 
-            return false;
-        }
+                    }
+                    else if (pass.value[i] >= '0' && pass.value[i] <= '9') {
+                        b++;
+                    }
+                    else if (pass.value[i] == " ")
+                    {
+                        s++;
+                    }
+
+                    else 
+                    {
+                        d++;
+                       
+                    }
+                    
+                 }
+                 if (c == 0) {
+                      window.alert("password should contain atleast one lowercase ")
+                    pass.focus();
+                    return false;
+
+                 }
+                   if (a == 0) {
+                      window.alert("password should contain atleast one uppercase ")
+                    pass.focus();
+                    return false;
+
+                 }
+                 if (b == 0) {
+                         window.alert("password should contain atleast one digit ")
+                    pass.focus();
+                    return false;
+
+                 }
+                if  (d == 0) {
+                    window.alert("password should contain atleast one special character ")
+                    pass.focus();
+                    return false;
+                 }
+                   if  (s != 0) {
+                    window.alert("password should not contain spaces ")
+                    pass.focus();
+                    return false;
+                 }
+
+            }
+            
+                return true;
+           
         
-     
-        else if ((pass.value == "") || (pass.value == " ")) {
-            window.alert("Please enter valid password.");
-            pass.focus();
-
-            return false;
-        }
-               else if (pass.value.patterMismatch(strongRegex)) {
-
-            window.alert("password must be of length 8 and should contain atleast one uppercase and one lowercase and one digit ")
-            pass.focus();
-            return false;
-
-        }
-        else {return true;}
         
        
-}</script> 
+        }</script> 
 
     <link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" />
 
@@ -222,7 +300,7 @@
                 <td class="auto-style21">
                     mobile no.</td>
                 <td>
-                    <asp:TextBox ID="usrmobnotb" runat="server" TextMode="Phone"  ></asp:TextBox>
+                    <asp:TextBox ID="usrmobnotb" runat="server" TextMode="Number"  ></asp:TextBox>
                 </td>
                
             </tr>
@@ -238,8 +316,6 @@
         
     <div class="btncol">
         <br />
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-                    </asp:ScriptManager>
         <asp:Button ID="Add_btn" CssClass="button" runat="server" Text="ADD" OnClientClick="return validation();" OnClick="Add_btn_Click" ViewStateMode="Enabled" /><br /><br />
 
          <asp:Button ID="Update" CssClass="button"  runat="server" Text="UPDATE" OnClick="Update_Click" /><br /><br />
@@ -378,13 +454,14 @@
         
        
              <div class="btncol1">
+                 <br /><br />
          <asp:Button ID="Search"  runat="server" CssClass="button1" Text="SEARCH" OnClick="Search_Click" ToolTip="Fill only two fields for searching" /><br /><br />
 
          <asp:Button ID="Lodbtn"  runat="server"  CssClass="button1" Text="LOAD" OnClick="Lodbtn_Click" /><br /><br />
 
          <asp:Button ID="Clearsrch" runat="server" CssClass="button1" Text="CLEAR" OnClick="Clearsrch_Click" /><br /><br />
 
-         <asp:Button ID="GrpSRCH"  runat="server" CssClass="button1" Text="GROUP SEARCH" /><br /><br />
+        <!-- <asp:Button ID="GrpSRCH"  runat="server" CssClass="button1" Text="GROUP SEARCH" />  -->
 
    
        </div>

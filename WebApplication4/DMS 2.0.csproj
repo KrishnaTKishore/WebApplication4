@@ -67,18 +67,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADfirstpg.aspx" />
     <Content Include="App_Data\DMSdb.mdf" />
     <Content Include="App_Data\DMSdb_log.ldf">
       <DependentUpon>DMSdb.mdf</DependentUpon>
     </Content>
     <Content Include="DCfirstpg.aspx" />
+    <Content Include="DCprjpg.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HtmlPage1.html" />
     <Content Include="css\StyleSheet1.css" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="ADusrpg.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADfirstpg.aspx.cs">
+      <DependentUpon>ADfirstpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADfirstpg.aspx.designer.cs">
+      <DependentUpon>ADfirstpg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DCfirstpg.aspx.cs">
       <DependentUpon>DCfirstpg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,16 +96,30 @@
     <Compile Include="DCfirstpg.aspx.designer.cs">
       <DependentUpon>DCfirstpg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DCprjpg.aspx.cs">
+      <DependentUpon>DCprjpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCprjpg.aspx.designer.cs">
+      <DependentUpon>DCprjpg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ADusrpg.aspx.cs">
+      <DependentUpon>ADusrpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADusrpg.aspx.designer.cs">
+      <DependentUpon>ADusrpg.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

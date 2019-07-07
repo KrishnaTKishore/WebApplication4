@@ -22,17 +22,21 @@
 .info {
     float: left;
     width: 60%;
-    height: 70%
+    height: 70%;
 }
 .btncol {
     width: 40%;
     float: right;
     height:70%;
+    left:60%;
+    
 }
 .btncol1 {
     width: 40%;
     float: right;
     top:42%;
+   
+    left:60%;
 
 }
 .button {
@@ -43,7 +47,7 @@
 .button1 {
     position: center;
     width: 90%;
-    height: 10%;
+    height: 15%;
 }
 .notification {
     background-color:lavender;

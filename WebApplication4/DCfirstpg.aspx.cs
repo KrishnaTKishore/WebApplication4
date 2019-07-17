@@ -18,5 +18,15 @@ namespace WebApplication4
         {
             Server.Transfer("DCprjpg.aspx");
         }
+
+        protected void doc_db_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("DCdocfirstpg.aspx");
+        }
+
+        protected void vw_prj_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

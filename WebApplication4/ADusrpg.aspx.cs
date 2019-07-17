@@ -14,10 +14,11 @@ namespace WebApplication4
     {
         //establishing connection
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DMSdb.mdf;Integrated Security=True");
-        
+        //before any button is clicked, the first load page properties
         protected void Page_Load(object sender, EventArgs e)
         {
-            //the text box type is made into password via code so that th evalues are not encrypted
+            Hide.Visible = false;
+            //the text box type is made into password via code so that the values are not encrypted
             usrpass_tb.Attributes["type"] = "password";
             
             if (con.State == ConnectionState.Closed)
@@ -200,6 +201,7 @@ namespace WebApplication4
             con.Close();
 
         }
+        //this function helps in displaying th record 
         public void Disp()
         {
             if (con.State == ConnectionState.Closed)
@@ -220,7 +222,6 @@ namespace WebApplication4
             con.Close();
 
         }
-
         //revert back to the empty text boxes
         public void Revert()
         {
@@ -241,7 +242,7 @@ namespace WebApplication4
             addnewcompbtn.Visible = false;
             usrddldes_tb.Visible = true;
         }
-
+        //this helps in adding new record to the database
         protected void Add_btn_Click(object sender, EventArgs e)
         {
 
@@ -264,13 +265,23 @@ namespace WebApplication4
                 cmd.CommandText = "insert into users(user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no,user_password) values ('" + usrid_tb.Text + "','" + usrfname_tb.Text + "','" + usrmname_tb.Text + "','" + usrlname_tb.Text + "','" + usrddlcmpny.Text + "','" + usrddlprj.Text + "','" + usrddldes_tb.Text + "','" + usremail_tb.Text + "','" + usrmobnotb.Text + "','" + usrpass_tb.Text + "')";
                 cmd.ExecuteNonQuery();
                 Clear_Click(this, new EventArgs());
+                con.Close();
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+               // cmd.CommandText = "insert into usrprj(user_id,prj_id) values ('"+usrid_tb.Text+"',(select prj_id from project where prj_name='"+usrddlprj.Text+"'))";
+                 //   cmd.ExecuteNonQuery();
+                //Clear_Click(this, new EventArgs());
+               // con.Close();
                 notify.Text = "<span style= 'color:green' >\n \nUser details added successfully</span> ";
                 if (con.State == ConnectionState.Open)
                     con.Close();
             }
 
         }
-
+        //adding a new designation to the dropdownllist
         protected void addnewdesbtn_Click(object sender, EventArgs e)
         {
             if ((newusrdesgtb.Text == "") || (newusrdesgtb.Text == " "))
@@ -289,7 +300,7 @@ namespace WebApplication4
                 usrddldes_tb.Visible = true;
             }
         }
-
+        //adding a new company to the dropdownlist
         protected void addnewcompbtn_Click(object sender, EventArgs e)
         {
             if (newcomptb.Text != " ")
@@ -306,7 +317,7 @@ namespace WebApplication4
             else
                 notify.Text = "<span style= 'color:red'>you can not add invalid company names into the column</span>";
         }
-
+        //selecting the gridview row and the details pops up in the respective textboxes
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             usrid_tb.Text = GridView1.SelectedRow.Cells[2].Text;
@@ -330,7 +341,7 @@ namespace WebApplication4
             usrmobnotb.Text = GridView1.SelectedRow.Cells[10].Text;
 
         }
-
+        //deleting records from database by taking id as reference
         protected void Delete_Click(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Closed)
@@ -352,6 +363,8 @@ namespace WebApplication4
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "delete from users where user_id ='" + usrid_tb.Text + "'";
+
+               // cmd.CommandText = "delete from usrprj where user_id ='" + usrid_tb.Text + "'";
                 cmd.ExecuteNonQuery();
                 Disp_id();
                 if (TextBox1.Text == "0")
@@ -368,13 +381,15 @@ namespace WebApplication4
             usrid_tb.Focus();
 
         }
-
+        //clear all the textboxes and display the database in gridview
         protected void Clear_Click(object sender, EventArgs e)
         {
+            //displays data in gridview
             Disp();
+            //clears the textboxes
             Revert();
         }
-
+        //updates the database by taking the id as the primary key
         protected void Update_Click(object sender, EventArgs e)
         {
 
@@ -394,7 +409,10 @@ namespace WebApplication4
                 //updating user details into the database
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = " UPDATE users SET first_name = '" + usrfname_tb.Text + "', middle_name ='" + usrmname_tb.Text + "',last_name='" + usrlname_tb.Text + "',company_name='" + usrddlcmpny.Text + "',project_name='" + usrddlprj.Text + "',user_designation='" + usrddldes_tb.Text + "',user_email='" + usremail_tb.Text + "',user_password='" + usrpass_tb.Text + "'WHERE user_id='" + usrid_tb.Text + "'";
+                cmd.CommandText = " UPDATE users SET first_name = '" + usrfname_tb.Text + "', middle_name ='" + usrmname_tb.Text + "',last_name='" + usrlname_tb.Text + "',project_name='" + usrddlprj.Text + "',company_name='" + usrddlcmpny.Text + "',user_designation='" + usrddldes_tb.Text + "',user_email='" + usremail_tb.Text + "',user_password='" + usrpass_tb.Text + "'WHERE user_id='" + usrid_tb.Text + "'";
+                //cmd.CommandText = "UPDATE users SET prj_id =(select prj_id from project where prj_name='"+ usrddlprj.Text+"') WHERE user_id = '" + usrid_tb.Text + "'";
+
+
                 cmd.ExecuteNonQuery();
                 Clear_Click(this, new EventArgs());
                 if (con.State == ConnectionState.Open)
@@ -405,352 +423,270 @@ namespace WebApplication4
             usrid_tb.Focus();
 
         }
-
+        //if the company drop down list's 'other option' is selected, textbox for entering a new company name and add to ddl btn pops up 
         protected void usrddlcmpny_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if the selected option is 'other'
             if (usrddlcmpny.SelectedValue == "other")
             {
                 PlaceHolder2.Visible = true;
-                // usrddlcmpny.Visible = true;
+                //textbox for entering the new company's name is visible
                 newcomptb.Visible = true;
+                //add new company btn is visible
                 addnewcompbtn.Visible = true;
             }
+            //if the selected option is not other
             if (usrddlcmpny.SelectedValue != "other")
             {
                 PlaceHolder2.Visible = false;
                 // usrddlcmpny.Visible = true;
                 newcomptb.Visible = false;
+                //add new company btn is invisible
                 addnewcompbtn.Visible = false;
             }
 
         }
-
+        //if the designation's ddl's 'other' option is selected, textbox for entering a new designation name is added
         protected void usrddldes_tb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //when other option is selected, the textbox and btn is made visible
             if (usrddldes_tb.SelectedValue == "other")
             {
                 PlaceHolder1.Visible = true;
-                // usrddldes_tb.Visible = true;
                 newusrdesgtb.Visible = true;
                 addnewdesbtn.Visible = true;
             }
+            //when any other option other than 'other' is selcted, the textbox and btn is made invisible
             if (usrddldes_tb.SelectedValue != "other")
             {
                 PlaceHolder1.Visible = false;
-                // usrddldes_tb.Visible = true;
                 newusrdesgtb.Visible = false;
                 addnewdesbtn.Visible = false;
             }
         }
-
+        
         protected void Search_Click(object sender, EventArgs e)
         {
-           
+           //this variable will keep the count of search text we provided
             int c = 0;
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
 
-
+            //if search text is not provided, it should show an appropriate message.
             if ((seausrIDtb.Text == "") && (seausrFNtb.Text == "") && (seausrLNtb.Text == "") && (seausrdesgtb.SelectedIndex == 0) && (ddlseaprj.SelectedIndex == 0) && (ddlseacomp.SelectedIndex == 0))
             {
                 notify.Text = "<span style= 'color:red'>\n Please enter valid data for searching...no values entered for searching </span>";
                 
             }
+            else { 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            if (c == 0)
-            {
-                if (seausrIDtb.Text != "")
-                {
-                    c++;
-                    if (seausrFNtb.Text != "")
+                if (c == 0)
+                {//when id is entered
+                    if (seausrIDtb.Text != "")
                     {
                         c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where first_name='" + seausrFNtb.Text + "' and user_id='" + seausrIDtb.Text + "' ";
+                        //id + first name
+                        if (seausrFNtb.Text != "")
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where first_name='" + seausrFNtb.Text + "' and user_id='" + seausrIDtb.Text + "' ";
+                        }
+                        //id + last name
+                        if (seausrLNtb.Text != "")
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "' and user_id='" + seausrIDtb.Text + "'";
+
+                        }
+                       //id + designation
+                        if (seausrdesgtb.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
+
+
+                        }
+                        if (ddlseaprj.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
+
+                        }
+                        //id + company
+                        if (ddlseacomp.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
+
+                        }
+                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_id='" + seausrIDtb.Text + "'";
+
+                        //if more than two values are entered
+                        if (c > 2)
+                        {
+                            notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
+                            Disp();
+                        }
+
                     }
-                    if (seausrLNtb.Text != "")
+                    else if ((c == 0) && (seausrFNtb.Text != ""))
+                    {
+
+                        c++;
+                        if (seausrLNtb.Text != "")
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "' and first_name='" + seausrFNtb.Text + "'";
+
+                        }
+                        if (seausrdesgtb.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
+
+
+                        }
+                        
+                        if (ddlseaprj.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
+
+                        }
+                        if (ddlseacomp.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
+
+                        }
+
+                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where first_name='" + seausrFNtb.Text + "'";
+
+                        if (c > 2)
+                        {
+                            notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
+                            Disp();
+                        }
+
+                    }
+
+                    if ((seausrLNtb.Text != "") && (c == 0))
                     {
                         c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "' and user_id='" + seausrIDtb.Text + "'";
+                        if (seausrdesgtb.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and last_name='" + seausrLNtb.Text + "'";
+
+
+                        }
+                        if (ddlseaprj.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and last_name='" + seausrLNtb.Text + "'";
+
+                        }
+                        if (ddlseacomp.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'and last_name='" + seausrLNtb.Text + "'";
+
+                        }
+                        if (c > 2)
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "'";
 
                     }
-                    if (seausrLNtb.Text != "")
+                    if ((seausrdesgtb.SelectedIndex != 0) && (c == 0))
                     {
                         c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "' and user_id='" + seausrIDtb.Text + "'";
+                        if (ddlseaprj.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "'and user_designation='" + seausrdesgtb.SelectedValue + "'";
 
+                        }
+                        if (ddlseacomp.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'and user_designation='" + seausrdesgtb.SelectedValue + "'";
+
+                        }
+
+                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "'";
+
+                        if (c > 2)
+                        {
+                            notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
+                            Disp();
+                        }
                     }
-                    if (seausrdesgtb.SelectedIndex != 0)
+                    
+                    if ((ddlseaprj.SelectedIndex != 0) && (c == 0))
                     {
                         c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
+                        if (ddlseacomp.SelectedIndex != 0)
+                        {
+                            c++;
+                            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'and project_name='" + ddlseaprj.SelectedValue + "'";
 
+                        }
 
+                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "'";
+
+                        if (c > 2)
+                        {
+                            notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
+                            Disp();
+                        }
                     }
-                    if (ddlseaprj.SelectedIndex != 0)
+                    if ((ddlseacomp.SelectedIndex != 0) && (c == 0))
                     {
                         c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
+                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'";
 
+                        if (c > 2)
+                        {
+                            notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
+                            Disp();
+                        }
                     }
-                    if (ddlseacomp.SelectedIndex != 0)
+                    if (con.State == ConnectionState.Closed)
                     {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
-
+                        con.Open();
                     }
-                    cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_id='" + seausrIDtb.Text + "'";
 
-
-                    if (c > 2)
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    GridView1.DataSource = dt;
+                    GridView1.DataBind();
+                    // GridView1.Columns[11].Visible = false;
+                    TextBox1.Text = Convert.ToString(dt.Rows.Count);
+                    if (Convert.ToInt32(TextBox1.Text) == 1)
                     {
-                        notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
+
+                        Filllab();
+                    }
+                    if (Convert.ToInt32(TextBox1.Text) == 0)
+                    {
+                        notify.Text = "<span style= 'color:red'>\n\n Please enter valid data for searching..the values don't match any record</span>";
                         Disp();
                     }
-
-                }
-                else if ((c == 0) && (seausrFNtb.Text != ""))
-                {
-
-                    c++;
-                    if (seausrLNtb.Text != "")
+                    if (con.State == ConnectionState.Open)
                     {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "' and first_name='" + seausrFNtb.Text + "'";
-
-                    }
-                    if (seausrdesgtb.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
-
-
-                    }
-                    if (ddlseaprj.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
-
-                    }
-                    if (ddlseacomp.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
-
-                    }
-
-                    cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where first_name='" + seausrFNtb.Text + "'";
-
-                    if (c > 2)
-                    {
-                        notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
-                        Disp();
-                    }
-
-                }
-
-                if ((seausrLNtb.Text != "") && (c == 0))
-                {
-                    c++;
-                    if (seausrdesgtb.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and last_name='" + seausrLNtb.Text + "'";
-
-
-                    }
-                    if (ddlseaprj.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and last_name='" + seausrLNtb.Text + "'";
-
-                    }
-                    if (ddlseacomp.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'and last_name='" + seausrLNtb.Text + "'";
-
-                    }
-                    if (c > 2)
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "'";
-
-                }
-                if ((seausrdesgtb.SelectedIndex != 0) && (c == 0))
-                {
-                    c++;
-                    if (ddlseaprj.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "'and user_designation='" + seausrdesgtb.SelectedValue + "'";
-
-                    }
-                    if (ddlseacomp.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'and user_designation='" + seausrdesgtb.SelectedValue + "'";
-
-                    }
-
-                    cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "'";
-
-                    if (c > 2)
-                    {
-                        notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
-                        Disp();
+                        con.Close();
                     }
                 }
-                if ((ddlseaprj.SelectedIndex != 0) && (c == 0))
-                {
-                    c++;
-                    if (ddlseacomp.SelectedIndex != 0)
-                    {
-                        c++;
-                        cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'and project_name='" + ddlseaprj.SelectedValue + "'";
-
-                    }
-
-                    cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "'";
-
-                    if (c > 2)
-                    {
-                        notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
-                        Disp();
-                    }
-                }
-                if ((ddlseacomp.SelectedIndex != 0) && (c == 0))
-                {
-                    c++;
-                    cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "'";
-
-                    if (c > 2)
-                    {
-                        notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
-                        Disp();
-                    }
-                }
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-                // GridView1.Columns[11].Visible = false;
-                TextBox1.Text = Convert.ToString(dt.Rows.Count);
-                if (Convert.ToInt32(TextBox1.Text) == 1)
-                {
-
-                    Filllab();
-                }
-                if (Convert.ToInt32(TextBox1.Text) == 0)
-                {
-                    notify.Text = "<span style= 'color:red'>\n\n Please enter valid data for searching..the values don't match any record</span>";
-                    Disp();
-                }
-
-                con.Close();
 
             }
         }
-
-
-
-            /*
-                        if ((seausrFNtb.Text == "") && (seausrIDtb.Text != null))
-                        {
-                            count++;
-                            if (con.State == ConnectionState.Closed)
-                            {
-                                con.Open();
-                            }
-                            SqlCommand cmd1 = con.CreateCommand();
-                            cmd1.CommandType = CommandType.Text;
-                            cmd1.CommandText = " select ROW_NUMBER() OVER (ORDER BY user_id),* from users where user_id='" + seausrIDtb.Text + "'";
-                            cmd1.ExecuteNonQuery();
-
-                            DataTable dt = new DataTable();
-                            SqlDataAdapter da = new SqlDataAdapter(cmd1);
-                            da.Fill(dt);
-                            GridView1.DataSource = dt;
-                            GridView1.DataBind();
-                            TextBox1.Text = Convert.ToString(dt.Rows.Count);
-                            Filllab();
-                            con.Close();
-                        }
-                        if ((seausrIDtb.Text == "") && (seausrFNtb.Text != null))
-                        {
-
-                            count++;
-
-                            if (con.State == ConnectionState.Closed)
-                            {
-                                con.Open();
-                            }
-                            SqlCommand cmd1 = con.CreateCommand();
-                            cmd1.CommandType = CommandType.Text;
-                            if (seausrFNtb.Text[0] == ' ')
-                            {
-                                notify.Text="<span style= 'color:red'>Please enter a valid name</span>";
-                                con.Close();
-                            }
-                            else
-                            {
-                                cmd1.CommandText = " select ROW_NUMBER() OVER (ORDER BY user_id),* from users where first_name like '%" + seausrFNtb.Text + "%'";
-                                cmd1.ExecuteNonQuery();
-                                DataTable dt = new DataTable();
-                                SqlDataAdapter da = new SqlDataAdapter(cmd1);
-                                da.Fill(dt);
-                                GridView1.DataSource = dt;
-                                GridView1.DataBind();
-                                TextBox1.Text = Convert.ToString(dt.Rows.Count);
-                                Filllab();
-                                con.Close();
-                            }
-                        }
-
-
-                        if ((seausrIDtb.Text != null) && (seausrFNtb.Text != null))
-                        {
-                            if (count == 0)
-                            {
-                                if (con.State == ConnectionState.Closed)
-                                {
-                                    con.Open();
-                                }
-                                SqlCommand cmd1 = con.CreateCommand();
-                                cmd1.CommandType = CommandType.Text;
-                                cmd1.CommandText = " select ROW_NUMBER() OVER (ORDER BY user_id),* from users where user_id='" + seausrIDtb.Text + "' and first_name='" + seausrFNtb.Text + "'";
-
-                cmd1.ExecuteNonQuery();
-                                DataTable dt = new DataTable();
-                                SqlDataAdapter da = new SqlDataAdapter(cmd1);
-                                da.Fill(dt);
-                                GridView1.DataSource = dt;
-                                GridView1.DataBind();
-                                TextBox1.Text = Convert.ToString(dt.Rows.Count);
-                                Filllab();
-                                con.Close();
-
-                            }
-                            
-      
-        }
-
-    */
-
-
+        
         public void Filllab()
     {
-           
-       
-       
-
             this.GridView1.SelectedIndex = 0;
             lab_id.Text = GridView1.SelectedRow.Cells[2].Text;
             Labfnm.Text = GridView1.SelectedRow.Cells[3].Text;
@@ -761,18 +697,19 @@ namespace WebApplication4
             Labdesg.Text = GridView1.SelectedRow.Cells[8].Text;
             Labmail.Text = GridView1.SelectedRow.Cells[9].Text;
             Labmob.Text = GridView1.SelectedRow.Cells[10].Text;
-           // Labpass.Text = GridView1.SelectedRow.Cells[11].Text;
            TextBox2.Text = GridView1.SelectedRow.Cells[11].Text;
                 Labpass.Text = "*****";
                 Disp();
       
     }
-
+        //show the password 
         protected void showpass_Click(object sender, EventArgs e)
         {
             Labpass.Text = TextBox2.Text;
+            showpass.Visible = false;
+            Hide.Visible = true;
         }
-
+        //
         protected void Lodbtn_Click(object sender, EventArgs e)
         {
             usrid_tb.Text = lab_id.Text;
@@ -818,7 +755,7 @@ namespace WebApplication4
             seausrIDtb.Text = "";
             seausrFNtb.Text = "";
             seausrLNtb.Text = "";
-            seausrdesgtb.Text = "";
+            seausrdesgtb.SelectedIndex = 0;
             ddlseacomp.SelectedIndex = 0;
             ddlseaprj.SelectedIndex = 0;
         }
@@ -828,15 +765,14 @@ namespace WebApplication4
       
         }
 
-     /*   protected void shw_Click(object sender, EventArgs e)
+        protected void Hide_Click(object sender, EventArgs e)
         {
-            usrpass_tb.Attributes["type"] = "SingleLine";
-           
-       
-            //System.Threading.Thread.Sleep(5000);
+            Labpass.Text = "*****";
+            Hide.Visible = false;
+            showpass.Visible = true;
+        }
 
-           // usrpass_tb.Attributes["type"] = "Password";
-        }*/
+      
     }
 
     }

@@ -29,15 +29,17 @@
             height: 26px;
         }
     </style>
+    <link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
-    <form id="form2" runat="server" class="auto-style5">
+    <form id="form2" runat="server" class="fm">
         &nbsp;
         <div style="align-self : center">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EMPLOYEE LOGIN</div>
         <table style="width: 100%;">
             <tr>
-                <td class="auto-style3">
+                <td>
                     <asp:Label ID="Label3" runat="server" Text="Employee ID"></asp:Label>
                 </td>
                 <td>
@@ -45,15 +47,15 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style6">
+                <td>
                     <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 </td>
-                <td class="auto-style7">
+                <td>
                     <asp:TextBox ID="password" runat="server" AutoCompleteType="Disabled" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3">
+                <td>
                     <asp:Label ID="Label4" runat="server" EnableViewState="False" Text="Designation" Visible="False"></asp:Label>
                 </td>
                 <td>
@@ -61,8 +63,8 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4"></td>
-                <td class="auto-style1">
+                <td ></td>
+                <td >
                     <asp:Button ID="Log" runat="server" BackColor="#00CC00" OnClick="Log_Click" Text="Log In" Width="126px" />
                 </td>
             </tr>

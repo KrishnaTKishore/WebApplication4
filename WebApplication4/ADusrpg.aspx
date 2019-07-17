@@ -318,7 +318,7 @@
         <br />
         <asp:Button ID="Add_btn" CssClass="button" runat="server" Text="ADD" OnClientClick="return validation();" OnClick="Add_btn_Click" ViewStateMode="Enabled" /><br /><br />
 
-         <asp:Button ID="Update" CssClass="button"  runat="server" Text="UPDATE" OnClick="Update_Click" /><br /><br />
+         <asp:Button ID="Update" CssClass="button"  runat="server" Text="UPDATE" OnClientClick="return validation();" OnClick="Update_Click" /><br /><br />
 
          <asp:Button ID="Delete" CssClass="button"  runat="server" Text="DELETE" OnClick="Delete_Click" /><br /><br />
 
@@ -375,15 +375,13 @@
                     <asp:TextBox ID="TextBox2" runat="server" Visible="False"></asp:TextBox>
                      </td>
                    <td>  <asp:Label ID="Labpass" runat="server" Text=""></asp:Label>
-                       <asp:Button ID="showpass"  runat="server" Text="Show" OnClick="showpass_Click" />
+                       <asp:Button ID="showpass"  runat="server" Text="Show" OnClick="showpass_Click" Width="60px" />
+                       <asp:Button ID="Hide" runat="server" OnClick="Hide_Click" Text="Hide" Width="60px" />
                    </td>
                </tr>
            </table>
            <br />
         
-                 
-               
-           
             
        </div>
      

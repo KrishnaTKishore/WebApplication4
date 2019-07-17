@@ -26,7 +26,7 @@ namespace WebApplication4
 
         protected void prjdbbn_Click(object sender, EventArgs e)
         {
-
+            Server.Transfer("ADprjpg.aspx");
         }
     }
 }

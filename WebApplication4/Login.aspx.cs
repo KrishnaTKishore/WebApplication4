@@ -13,7 +13,6 @@ namespace WebApplication4
     {
         //fetching the physical location of the database
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DMSdb.mdf;Integrated Security=True");
-
         protected void Page_Load(object sender, EventArgs e)
         {
             con.Open();
@@ -44,15 +43,16 @@ namespace WebApplication4
                     Server.Transfer("ADfirstpg.aspx");
                 }
                 //checking is the user has entered the correct login credentials
-                else if (emp_id.Text == (mr["user_id"].ToString()) && password.Text == (mr["user_password"].ToString()) && TextBox1.Text == (mr["user_designation"].ToString()))
+                else if (emp_id.Text == (mr["user_id"].ToString()) && password.Text == (mr["user_password"].ToString()))
                 {
-                    Server.Transfer("OTfirstpg.aspx");
+                    // Server.Transfer("OTfirstpg.aspx");
+                    Response.Write("WELCOME");
                 }
                 //error message
                 //if (emp_id.Text == null && password.Text == null && TextBox1.Text == null)
 
             }
-            Response.Write("We couldn't identify you. Kindly recheck the login details");
+            Response.Write("<span='color:red'>We couldn't identify you. Kindly recheck the login details</span>");
 
             con.Close();
 

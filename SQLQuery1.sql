@@ -1,1 +1,8 @@
-﻿insert into project(prj_id,prj_name,prj_created,prj_completed,prj_status)values('1','CITY HALL','14-jan-2013','16-dec-2017','1');
+﻿CREATE TABLE usrprj (
+  id int identity,
+  user_id nvarchar(50) NOT NULL,
+  prj_id varchar(50) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+  FOREIGN KEY (prj_id) REFERENCES project(prj_id) ON DELETE CASCADE
+);

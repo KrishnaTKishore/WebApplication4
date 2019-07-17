@@ -67,21 +67,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DCwirpg.aspx" />
     <Content Include="ADfirstpg.aspx" />
     <Content Include="App_Data\DMSdb.mdf" />
     <Content Include="App_Data\DMSdb_log.ldf">
       <DependentUpon>DMSdb.mdf</DependentUpon>
     </Content>
+    <Content Include="DCdocfirstpg.aspx" />
     <Content Include="DCfirstpg.aspx" />
+    <Content Include="ADprjpg.aspx" />
     <Content Include="DCprjpg.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HtmlPage1.html" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="Login.aspx" />
+    <Content Include="trialpg.aspx" />
     <Content Include="Web.config" />
     <Content Include="ADusrpg.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DCwirpg.aspx.cs">
+      <DependentUpon>DCwirpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCwirpg.aspx.designer.cs">
+      <DependentUpon>DCwirpg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADfirstpg.aspx.cs">
       <DependentUpon>ADfirstpg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -89,12 +100,26 @@
     <Compile Include="ADfirstpg.aspx.designer.cs">
       <DependentUpon>ADfirstpg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DCdocfirstpg.aspx.cs">
+      <DependentUpon>DCdocfirstpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCdocfirstpg.aspx.designer.cs">
+      <DependentUpon>DCdocfirstpg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DCfirstpg.aspx.cs">
       <DependentUpon>DCfirstpg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DCfirstpg.aspx.designer.cs">
       <DependentUpon>DCfirstpg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADprjpg.aspx.cs">
+      <DependentUpon>ADprjpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADprjpg.aspx.designer.cs">
+      <DependentUpon>ADprjpg.aspx</DependentUpon>
     </Compile>
     <Compile Include="DCprjpg.aspx.cs">
       <DependentUpon>DCprjpg.aspx</DependentUpon>
@@ -121,6 +146,13 @@
     <Compile Include="ADusrpg.aspx.designer.cs">
       <DependentUpon>ADusrpg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="trialpg.aspx.cs">
+      <DependentUpon>trialpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trialpg.aspx.designer.cs">
+      <DependentUpon>trialpg.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -133,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

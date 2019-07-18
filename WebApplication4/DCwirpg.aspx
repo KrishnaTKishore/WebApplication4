@@ -5,12 +5,85 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script>
+        function validation() {
+            var wir = document.getElementById("wir_tb");
+            var wirno = document.getElementById("wirno_tb");
+            var boqref = document.getElementById("boqref_tb");
+            var loc = document.getElementById("loc_tb");
+            var se = document.getElementById("site_engr");
+            var cd = document.getElementById("cd_tb");
+            var subcon = document.getElementById("subcon_tb");
+            var des = document.getElementById("decipline");
+            var cssd = document.getElementById("cur_stat_sub_dt_tb");
+            var csrd = document.getElementById("cur_stat_rsp_dt_tb");
+            var cs = document.getElementById("cur_stat_tb");
+            var csr = document.getElementById("cur_stat_rev_tb");
+            var nod = document.getElementById("no_of_dys_tb");
+            var remrk = document.getElementById("remrk_tb");
+            var rfod = document.getElementById("rsn_fr_over_due");
+            var rsd1 = document.getElementById("rev1_sub_dt_tb");
+            var rrd1 = document.getElementById("rev1_ret_dt_tb");
+            var rs1 = document.getElementById("rev1_stat_tb");
+            var rsd2 = document.getElementById("rev2_sub_dt_tb");
+            var rrd2 = document.getElementById("rev2_ret_dt_tb");
+            var rs2 = document.getElementById("rev2_stat_tb");
+            var rsd3 = document.getElementById("rev3_sub_dt_tb");
+            var rrd3 = document.getElementById("rev3_ret_dt_tb");
+            var rs3 = document.getElementById("rev3_stat_tb");
+            var rsd4 = document.getElementById("rev4_sub_dt_tb");
+            var rrd4 = document.getElementById("rev4_ret_dt_tb");
+            var rs4 = document.getElementById("rev4_stat_tb");
+            var rsd5 = document.getElementById("rev5_sub_dt_tb");
+            var rrd5 = document.getElementById("rev5_ret_dt_tb");
+            var rs5 = document.getElementById("rev5_stat_tb");
+            var rsd6 = document.getElementById("rev6_sub_dt_tb");
+            var rrd6 = document.getElementById("rev6_ret_dt_tb");
+            var rs6 = document.getElementById("rev6_stat_tb");
+            if ((wir == "") || (wir == " ")) {
+                window.alert("Please enter the work inspection request");
+            }
+            if ((wirno == "") || (wirno == " ")) {
+                window.alert("Please enter the work inspection reference number");
+            }
+            if ((boqref == "") || (boqref == " ")) {
+                window.alert("Please enter the work inspection reference number");
+            }
+            if ((loc == "") || (loc == " ")) {
+                window.alert("Please enter the work inspection reference number");
+            }
+            if ((se == "") || (se == " ")) {
+                window.alert("Please enter the work inspection reference number");
+            }
+            if ((des == "") || (des == " ")) {
+                window.alert("Please enter the work inspection reference number");
+            }
+            if (subcon != "") {
+                for (var i = 0; i < subcon.value.length; i++) {
+                    if (!((subcon.value.charAt(i) >= 'a' && subcon.value.charAt(i) <= 'z') || (subcon.value.charAt(i) >= 'A' && subcon.value.charAt(i) <= 'Z'))) {
+                        window.alert("enter alphabets only in first name field");
+                        fn.focus();
+                        return false;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+        }
+        }
+    </script>
     <style type="text/css">
 
 .fm1 {
-    width: 1000px;
+    width: 100%;
 }
-
 .info {
     float: left;
     width: 60%;
@@ -20,7 +93,7 @@
     width: 100%;
     height: 100%
 }
-        .auto-style5 {
+.auto-style5 {
             width: 231px;
         }
 .btncol {
@@ -40,7 +113,6 @@
     height: 30%;
     float: left;
 }
-
 .notification {
     background-color:lavender;
     height:10%;
@@ -57,12 +129,6 @@
     width: 40%;
     top:40%;
 }
-.auto-style7 {
-            width: 44px;
-        }
-.auto-style6 {
-            width: 128px;
-        }
 .btncol1 {
     width: 20%;
     float: right;
@@ -79,13 +145,20 @@
 }
 .tab11{
     float:left;
-    width:40%;
+    width:500px;
 }
 .tab2{
     float:left;
-    width: 30%;
+    width: 250px;
     height:70%;
-    left:60%;
+    left:500px;
+   
+}
+.tab3{
+    float:left;
+    width: 250px;
+    height:70%;
+   
 }
 .tables{
     width:70%;
@@ -104,34 +177,40 @@
 .auto-style11 {
             width: 383px;
 }
+.generate{
+    float:right;
+    width:30%;
+    background-color:burlywood;
+}
+        .auto-style12 {
+            float: left;
+            width: 26%;
+        }
+        .auto-style13 {
+            width: 85%;
+            height: 100%;
+        }
     </style>
     <link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" />
-
 </head>
 <body >
-    <form id="form1" class="fm1" runat="server">
-               <div class="hlf">
-                <div class="tab11">
-        <table class="table">
-           
-            <tr>
-                <td class="auto-style11">ID:</td>
-                <td>
-                    <asp:TextBox ID="prjnm_tb" runat="server"></asp:TextBox>
-                    </td>
-               </tr>
-            <tr>
-                <td class="auto-style11">work inspection request:</td>
-                <td>
-                    <asp:TextBox ID="wir_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
+    <form id="form1"  runat="server">
+              <div class="hlf">
+              <div class="auto-style12">
+              <table class="table">
+             
+              <tr>
                 <td class="auto-style11">work inspection ref no.:</td>
-                <td>
+              <td>
                     <asp:TextBox ID="wirno_tb" runat="server"></asp:TextBox>
                 </td>
-            </tr>
+              </tr>
+              <tr>
+                <td class="auto-style11">work inspection request:</td>
+              <td>
+                    <asp:TextBox ID="wir_tb" runat="server" TextMode="MultiLine"></asp:TextBox>
+                  </td>
+             </tr>
               <tr>
                 <td class="auto-style11">boq ref.:</td>
                 <td>
@@ -144,7 +223,7 @@
                     <asp:TextBox ID="loc_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
+              <tr>
                 <td class="auto-style11">site engineer:</td>
                 <td>
                     <asp:TextBox ID="site_engr" runat="server"></asp:TextBox>
@@ -153,7 +232,7 @@
               <tr>
                 <td class="auto-style11">reason of C & D:</td>
                 <td>
-                    <asp:TextBox ID="cd_tb" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cd_tb" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
               <tr>
@@ -162,59 +241,32 @@
                     <asp:TextBox ID="subcon_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
-               <tr>
+              <tr>
                 <td class="auto-style11">decipline:</td>
                 <td>
                     <asp:TextBox ID="decipline" runat="server"></asp:TextBox>
                 </td>
             </tr>
-            <tr>
-                <td colspan="2">Current Status</td>
-                
-            </tr>
-        <tr>
-            <td class="auto-style11"> submitted date:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_sub_dt_tb" runat="server" ></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style11"> responsed date:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_rsp_dt_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
-                <td class="auto-style11">status:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style11">total no. of revisions:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_rev_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
+            
               <tr>
                 <td class="auto-style11">No. of days:</td>
                 <td>
                     <asp:TextBox ID="no_of_dys_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
-            <tr>
+              <tr>
                 <td class="auto-style11">Remark:</td>
                 <td>
                     <asp:TextBox ID="remrk_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
-            <tr>
+              <tr>
                 <td class="auto-style9">reason for over due:</td>
                 <td class="auto-style10">
-                    <asp:TextBox ID="rsn_fr_over_due" runat="server"></asp:TextBox>
-                </td>
+                    <asp:TextBox ID="rsn_fr_over_due" runat="server" TextMode="MultiLine"></asp:TextBox>
+                  </td>
             </tr>
-            <tr>
+              <tr>
 <td class="auto-style11">document:</td>
                 <td>
 
@@ -224,148 +276,154 @@
                 </td>
             </tr>
             </table></div> 
-                    <div class="tab2">
-                <table class="table">
-                              <tr><td colspan="2">Revision 01</td></tr>
-              <tr>
+              <div class="tab2">
+                <table class="auto-style13">
+                           <tr><td colspan="2">Revision 00</td></tr>
+             <tr>
                 <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev1_sub_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev0_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev1_ret_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev0_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td class="auto-style5">status:</td>
-                <td>
+             <td>
+                    <asp:TextBox ID="rev0_stat_tb" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+                              <tr><td colspan="2">Revision 01</td></tr>
+             <tr>
+                <td class="auto-style5">submitted date:</td>
+             <td>
+                    <asp:TextBox ID="rev1_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
+                </td>
+            </tr>
+             <tr>
+                <td class="auto-style5">returned date:</td>
+             <td>
+                    <asp:TextBox ID="rev1_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
+                </td>
+            </tr>
+             <tr>
+                <td class="auto-style5">status:</td>
+             <td>
                     <asp:TextBox ID="rev1_stat_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
                               <tr><td colspan="2">Revision 02</td></tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev2_sub_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev2_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev2_ret_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev2_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td class="auto-style5">status:</td>
-                <td>
+             <td>
                     <asp:TextBox ID="rev2_stat_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
                               <tr><td colspan="2">Revision 03</td></tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev3_sub_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev3_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev3_ret_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev3_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td class="auto-style5">status:</td>
-                <td>
+             <td>
                     <asp:TextBox ID="rev3_stat_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
+                 
+                    </table>
+                     </div>
+              <div class="tab3">
+                <table class="table">
                               <tr><td colspan="2">Revision 04</td></tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev4_sub_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev4_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev4_ret_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev4_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td class="auto-style5">status:</td>
-                <td>
+             <td>
                     <asp:TextBox ID="rev4_stat_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
                               <tr><td colspan="2">Revision 05</td></tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev5_sub_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev5_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev5_ret_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev5_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td class="auto-style5">status:</td>
-                <td>
+             <td>
                     <asp:TextBox ID="rev5_stat_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
                               <tr><td colspan="2">Revision 06</td></tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev6_sub_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev6_sub_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
+             <tr>
                 <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev6_ret_dt_tb" runat="server"></asp:TextBox>
+             <td>
+                    <asp:TextBox ID="rev6_ret_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td class="auto-style5">status:</td>
-                <td>
+             <td>
                     <asp:TextBox ID="rev6_stat_tb" runat="server"></asp:TextBox>
                 </td>
             </tr>
-                              <tr><td colspan="2">Revision 07</td></tr>
-              <tr>
-                <td class="auto-style5">submitted date:</td>
-                <td>
-                    <asp:TextBox ID="rev7_sub_dt_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
-                <td class="auto-style5">returned date:</td>
-                <td>
-                    <asp:TextBox ID="rev7_ret_dt_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">status:</td>
-                <td>
-                    <asp:TextBox ID="rev7_stat_tb" runat="server"></asp:TextBox>
-                </td>
-            </tr>
+
               
         </table>
       
                 </div>
                    
-                <div class="btncol">
-                    <div class="notification">
+              <div class="btncol">
+              <div class="notification">
         
         <asp:Label ID="notify" runat="server" Text=""></asp:Label>
                         </div> 
@@ -376,9 +434,46 @@
          <asp:Button ID="Delete" CssClass="button"  runat="server" Text="DELETE" OnClick="Delete_Click" /><br /><br />
          <asp:Button ID="Clear"  CssClass="button"  runat="server" Text="CLEAR"  OnClick="Clear_Click"  /><br /><br />
             </div>
+                   <div class="generate">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        Auto-generated: Can Not Edit
+                    </td>
+                </tr>
+                 <tr>
+                <td colspan="2">Current Status</td>
+            </tr>
+              <tr>
+            <td class="auto-style11"> submitted date:</td>
+                <td>
+                    <asp:TextBox ID="cur_stat_sub_dt_tb" runat="server" TextMode="Date" ReadOnly="True" ></asp:TextBox>
+                </td>
+            </tr>
+              <tr>
+                <td class="auto-style11"> responsed date:</td>
+                <td>
+                    <asp:TextBox ID="cur_stat_rsp_dt_tb" runat="server" TextMode="Date"></asp:TextBox>
+                </td>
+            </tr>
+              <tr>
+                <td class="auto-style11">status:</td>
+                <td>
+                    <asp:TextBox ID="cur_stat_tb" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+                  <tr>
+                <td class="auto-style11">total no. of revisions:</td>
+                <td>
+                    <asp:TextBox ID="cur_stat_rev_tb" runat="server" ReadOnly="True"></asp:TextBox>
+                </td>
+            </tr>
+            </table>
+        </div>
         </div> 
-                <div class="grid" >
-            <asp:GridView ID="GridView1" class="table" runat="server"  AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+       
+              <div class="grid" >
+              <asp:GridView ID="GridView1" class="table" runat="server"  AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <FooterStyle BackColor="White" ForeColor="#000066" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
@@ -388,35 +483,8 @@
                 <SortedAscendingHeaderStyle BackColor="#007DBB" />
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
-            </asp:GridView>   </div> 
-                <div>
-    <div class="notification">
-        </div>
-        <div class="search">
-            <table class="table">
-                <tr>
-                    <td class="auto-style7">
-            <asp:Label ID="Label14" runat="server" Text="Project ID"></asp:Label>
-                    </td>
-                    <td class="auto-style6">
-            <asp:TextBox ID="seaprjIDtb" runat="server"></asp:TextBox></td>
-                </tr>
-                    <tr>
-                    <td class="auto-style7">
-            <asp:Label ID="Label1" runat="server" Text="Project Name"></asp:Label>
-                    </td>
-                    <td class="auto-style6">
-            <asp:TextBox ID="seaprjNMtb" runat="server"></asp:TextBox></td>
-                </tr> 
-            </table>
-            </div>
-             <div class="btncol1">
-                       <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
-                 <br />
-         <asp:Button ID="Search"  runat="server" CssClass="button1" Text="SEARCH" OnClick="Search_Click"/><br /><br />
-         <asp:Button ID="Clearsrch" runat="server" CssClass="button1" Text="CLEAR" OnClick="Clearsrch_Click" />
-       </div>
-       </div>
+              </asp:GridView>  
+              </div> 
     </form>
 </body>
 </html>

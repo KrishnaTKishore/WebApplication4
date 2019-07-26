@@ -75,14 +75,14 @@ namespace WebApplication4
             }
             if (TextBox1.Text == "1")
             {
-                notify.Text = "<span style='color:red'>the project id exists..no two record can share the same id</span>";
+                notify.Text = "<span style='color:red'>The project id exists..no two record can share the same id</span>";
             }
             else
             {
 
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into project(prj_id,prj_name,prj_created,prj_completed,prj_status) values ('" + prjid_tb.Text + "','" + prjnm_tb.Text + "','" + prjcd_tb.Text + "','" + prjcom_tb.Text + "','" + prjstat_tb.SelectedValue + "')";
+                cmd.CommandText = "insert into project(prj_id,prj_name,client_name,employer_name,consultant_name,contractor_name,prj_created,prj_completed,prj_status) values ('" + prjid_tb.Text + "','" + prjnm_tb.Text + "','" + clnt_tb.Text + "','" + emp_tb.Text + "','" + cnslt_tb.Text + "','" + cntrctr_tb.Text + "','" + prjcd_tb.Text + "','" + prjcom_tb.Text + "','" + prjstat_tb.SelectedValue + "')";
                 cmd.ExecuteNonQuery();
                 displaydata();
                 Clear_Click(this, new EventArgs());
@@ -110,7 +110,7 @@ namespace WebApplication4
                 //updating user details into the database
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = " UPDATE project SET prj_id = '" + prjid_tb.Text + "', prj_name ='" + prjnm_tb.Text + "',prj_created='" + prjcd_tb.Text + "',prj_completed='" + prjcom_tb.Text + "',prj_status='" +prjstat_tb.Text + "' where prj_id='"+prjid_tb.Text+"'";
+                cmd.CommandText = " UPDATE project SET prj_id = '" + prjid_tb.Text + "', prj_name ='" + prjnm_tb.Text + "', client_name ='" + clnt_tb.Text + "', employer_name ='" + emp_tb.Text + "', consultant_name ='" + cnslt_tb.Text + "', contractor_name ='" + cntrctr_tb.Text + "',prj_created='" + prjcd_tb.Text + "',prj_completed='" + prjcom_tb.Text + "',prj_status='" +prjstat_tb.Text + "' where prj_id='"+prjid_tb.Text+"'";
                 cmd.ExecuteNonQuery();
                 Clear_Click(this, new EventArgs());
                 displaydata();
@@ -161,6 +161,10 @@ namespace WebApplication4
         {
             prjid_tb.Text = "";
             prjnm_tb.Text = "";
+            clnt_tb.Text = "";
+            emp_tb.Text = "";
+            cnslt_tb.Text = "";
+            cntrctr_tb.Text = "";
             prjcd_tb.Text = "";
             prjcom_tb.Text = "";
             prjstat_tb.SelectedIndex = 0;
@@ -270,15 +274,23 @@ namespace WebApplication4
             this.GridView1.SelectedIndex = 0;
            lab_prjid.Text = GridView1.SelectedRow.Cells[2].Text;
             Lab_prjnm.Text = GridView1.SelectedRow.Cells[3].Text;
-            Lab_cre.Text = GridView1.SelectedRow.Cells[4].Text;
-            Lab_com.Text = GridView1.SelectedRow.Cells[5].Text;
-            Lab_stat.Text = GridView1.SelectedRow.Cells[6].Text;
+            Lab_clnt.Text= GridView1.SelectedRow.Cells[4].Text;
+            Lab_emp.Text = GridView1.SelectedRow.Cells[5].Text;
+            Lab_cnslt.Text= GridView1.SelectedRow.Cells[6].Text;
+            Lab_cntrctr.Text = GridView1.SelectedRow.Cells[7].Text;
+            Lab_cre.Text = GridView1.SelectedRow.Cells[8].Text;
+            Lab_com.Text = GridView1.SelectedRow.Cells[9].Text;
+            Lab_stat.Text = GridView1.SelectedRow.Cells[10].Text;
         }
         //transfer the display after searches
         protected void Lodbtn_Click(object sender, EventArgs e)
         {
             prjid_tb.Text= lab_prjid.Text;
             prjnm_tb.Text = Lab_prjnm.Text;
+            clnt_tb.Text = Lab_clnt.Text;
+            emp_tb.Text = Lab_emp.Text;
+            cnslt_tb.Text = Lab_cnslt.Text;
+            cntrctr_tb.Text = Lab_cntrctr.Text;
             prjcd_tb.Text = Convert.ToString(Lab_cre.Text);
             prjcom_tb.Text = Convert.ToString( Lab_com.Text);
             prjstat_tb.Text = Lab_stat.Text;
@@ -289,6 +301,10 @@ namespace WebApplication4
         {
             lab_prjid.Text  ="";
             Lab_prjnm.Text  ="";
+            Lab_clnt.Text = "";
+            Lab_cnslt.Text = "";
+            Lab_cntrctr.Text = "";
+            Lab_emp.Text = "";
             Lab_cre.Text    ="";
             Lab_com.Text    ="";
             Lab_stat.Text   ="";
@@ -302,9 +318,13 @@ namespace WebApplication4
         {
             prjid_tb.Text = GridView1.SelectedRow.Cells[2].Text;
             prjnm_tb.Text = GridView1.SelectedRow.Cells[3].Text;
-            prjcd_tb.Text =Convert.ToString( GridView1.SelectedRow.Cells[4].Text);
-            prjcom_tb.Text = Convert.ToString(GridView1.SelectedRow.Cells[5].Text);
-            prjstat_tb.Text = GridView1.SelectedRow.Cells[6].Text;
+            clnt_tb.Text= GridView1.SelectedRow.Cells[4].Text;
+            emp_tb.Text = GridView1.SelectedRow.Cells[5].Text;
+            cnslt_tb.Text = GridView1.SelectedRow.Cells[6].Text;
+            cntrctr_tb.Text = GridView1.SelectedRow.Cells[7].Text;
+            prjcd_tb.Text =Convert.ToString( GridView1.SelectedRow.Cells[8].Text);
+            prjcom_tb.Text = Convert.ToString(GridView1.SelectedRow.Cells[9].Text);
+            prjstat_tb.Text = GridView1.SelectedRow.Cells[10].Text;
             
         }
     }

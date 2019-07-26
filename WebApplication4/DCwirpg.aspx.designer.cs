@@ -40,6 +40,15 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.TextBox wir_tb;
         
         /// <summary>
+        /// usrddlprj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList usrddlprj;
+        
+        /// <summary>
         /// boqref_tb control.
         /// </summary>
         /// <remarks>
@@ -128,15 +137,6 @@ namespace WebApplication4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-        
-        /// <summary>
-        /// upld_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button upld_btn;
         
         /// <summary>
         /// rev0_sub_dt_tb control.
@@ -364,6 +364,15 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.Button Delete;
         
         /// <summary>
+        /// Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Search;
+        
+        /// <summary>
         /// Clear control.
         /// </summary>
         /// <remarks>
@@ -407,6 +416,24 @@ namespace WebApplication4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cur_stat_rev_tb;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel1;
         
         /// <summary>
         /// GridView1 control.

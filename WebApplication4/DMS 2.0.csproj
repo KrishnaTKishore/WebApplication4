@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DCmirpg.aspx" />
+    <Content Include="DCmspg.aspx" />
     <Content Include="DCwirpg.aspx" />
     <Content Include="ADfirstpg.aspx" />
     <Content Include="App_Data\DMSdb.mdf" />
@@ -81,11 +83,26 @@
     <Content Include="HtmlPage1.html" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="Login.aspx" />
+    <Content Include="search.aspx" />
     <Content Include="trialpg.aspx" />
     <Content Include="Web.config" />
     <Content Include="ADusrpg.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DCmirpg.aspx.cs">
+      <DependentUpon>DCmirpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCmirpg.aspx.designer.cs">
+      <DependentUpon>DCmirpg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DCmspg.aspx.cs">
+      <DependentUpon>DCmspg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCmspg.aspx.designer.cs">
+      <DependentUpon>DCmspg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DCwirpg.aspx.cs">
       <DependentUpon>DCwirpg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -145,6 +162,13 @@
     </Compile>
     <Compile Include="ADusrpg.aspx.designer.cs">
       <DependentUpon>ADusrpg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search.aspx.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search.aspx.designer.cs">
+      <DependentUpon>search.aspx</DependentUpon>
     </Compile>
     <Compile Include="trialpg.aspx.cs">
       <DependentUpon>trialpg.aspx</DependentUpon>

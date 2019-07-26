@@ -16,7 +16,7 @@ namespace WebApplication4
 
         protected void wir_Click(object sender, EventArgs e)
         {
-
+            Server.Transfer("DCwirpg.aspx");
         }
 
         protected void mir_Click(object sender, EventArgs e)

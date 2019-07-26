@@ -7,39 +7,23 @@
     <title></title>
     <style type="text/css">
 
-        .auto-style5 {
-            width: 237px;
-            margin-top: 41px;
-        }
-        .auto-style3 {
-            width: 175px;
-        }
-        .auto-style4 {
-            height: 23px;
-            width: 175px;
+        .fm9{
+            width: 250px;
         }
         .auto-style1 {
-            height: 23px;
-        }
-        .auto-style6 {
-            width: 175px;
-            height: 26px;
-        }
-        .auto-style7 {
-            height: 26px;
+            width: 150px;
         }
     </style>
     <link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
-    <form id="form2" runat="server" class="fm">
-        &nbsp;
-        <div style="align-self : center">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EMPLOYEE LOGIN</div>
-        <table style="width: 100%;">
+    <form id="form2" class="fm9" runat="server" >
+        <p style="text-align: center;">EMPLOYEE LOGIN</p>
+        <table>
+            
             <tr>
-                <td>
+                <td class="auto-style1">
                     <asp:Label ID="Label3" runat="server" Text="Employee ID"></asp:Label>
                 </td>
                 <td>
@@ -47,7 +31,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="auto-style1">
                     <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 </td>
                 <td>
@@ -55,7 +39,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="auto-style1">
                     <asp:Label ID="Label4" runat="server" EnableViewState="False" Text="Designation" Visible="False"></asp:Label>
                 </td>
                 <td>
@@ -63,7 +47,7 @@
                 </td>
             </tr>
             <tr>
-                <td ></td>
+                <td class="auto-style1" ></td>
                 <td >
                     <asp:Button ID="Log" runat="server" BackColor="#00CC00" OnClick="Log_Click" Text="Log In" Width="126px" />
                 </td>

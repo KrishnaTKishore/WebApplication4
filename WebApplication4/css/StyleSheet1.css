@@ -1,6 +1,7 @@
 ﻿
 .fm{
-    width:600px;
+    
+    height:650px;
 }
 .fm1 {
     width: 800px;
@@ -14,36 +15,35 @@
     height: 100%;
 }
 .combo1 {
-    float: left;
     height: 100%;
-    width: 60%;
+    width:400px;
 }
 .combo {
-    float: right;
+   
     height: 100%;
-    width: 40%;
+    width:400px;
+   
 }
 .info {
     float: left;
-    width: 60%;
-    height: 70%;
+    width: 300px;
+   
 }
 .btncol {
-    width: 30%;
-    float: right;
-    height:70%;
-    left:60%;
+    width: 100px;
 }
 .btncol1 {
-    width: 30%;
-    float: right;
-    top:42%;
-    left:60%;
+    width: 100px;
+   
+}
+.hlf {
+    height: 70%;
+    width: 100%;
 }
 .button {
     position:center;
     width: 90%;
-    height:19%;
+    height:50px;
 }
 .button1 {
     position: center;
@@ -52,23 +52,29 @@
 }
 .notification {
     background-color:lavender;
-    height:10%;
+    height:20px;
     width: 100%;
 }
 .disp {
     background-color:darkgray;
-    height: 30%;
-    width: 100%;
+    height: 200px;
+    width: 400px;
 }
 .search {
     float:left;
-    height:60%;
-    width: 40%;
+    height:200px;
+    width: 200px;
     top:40%;
 }
 .table {
     width: 100%;
-    height: 100%
+    height: 100%;
+    
+}
+.table1 {
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
 }
 .grid {
     bottom: 0px;
@@ -77,6 +83,7 @@
     width: 100%;
     height: 30%;
     float: left;
+    
 }
 .firstpgbtn{
     width: 300px;

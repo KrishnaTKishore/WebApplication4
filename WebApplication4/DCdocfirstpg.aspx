@@ -14,7 +14,7 @@
             <p>
             What would you like to start with?
                 </p>
-&nbsp;<asp:Button ID="wir" runat="server" Text="WORK INSPECTION REQUEST LOG SHEET" class="firstpgbtn" OnClick="wir_Click"  />
+&nbsp;<asp:Button ID="wir" runat="server" Text="WORK INSPECTION REQUEST LOG SHEET"  class="firstpgbtn" OnClick="wir_Click"  />
             <br />
             <br />
 &nbsp;<asp:Button ID="mir" runat="server"   Text="MATERIAL INSPECTION REQUEST LOG SHEET" class="firstpgbtn" OnClick="mir_Click"  />

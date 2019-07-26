@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DCwirpg.aspx.cs" Inherits="WebApplication4.ADcmppg" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DCmspg.aspx.cs" Inherits="WebApplication4.DCmspg" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script>
+         <script>
       /*  function openpopup(){
             var winpops = window.open("search.aspx", "", "width=400,height=400,scrollbars,resizable,");
             
@@ -193,25 +193,19 @@
 
     </style>
 </head>
-<body >
-    <form id="form1"  runat="server">
+<body>
+    <form id="form1" runat="server">
               <div class="hlf">
               <div class="tab11">
                   <br />
               <table >
              
               <tr>
-                <td class="auto-style15">Work inspection ref no.<span style="color:red" class="auto-style6">*</span>:</td>
+                <td class="auto-style15">Material submittal ref no.<span style="color:red" class="auto-style6">*</span>:</td>
               <td>
-                    <asp:TextBox ID="wirno_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="matno_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
               </tr>
-              <tr>
-                <td class="auto-style15">Work inspection request<span style="color:red" class="auto-style6">*</span>:</td>
-              <td>
-                    <asp:TextBox ID="wir_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
-                  </td>
-             </tr>
                   <tr>
                       <td class="auto-style15">
                           <span class="auto-style15">Project</span><span style="color:red" class="auto-style6">*</span></td>
@@ -223,44 +217,75 @@
                 
                 </td>
                       </tr>
-              <tr>
-                <td class="auto-style15">Boq ref.:</td>
+                   <tr>
+                <td class="auto-style15">Supplier's name<span style="color:red" class="auto-style6">*</span>:</td>
+              <td>
+                    <asp:TextBox ID="suplr_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
+                  </td>
+             </tr>
+                    <tr>
+                <td class="auto-style15">Manufacturer's name:</td>
                 <td>
-                    <asp:TextBox ID="boqref_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="manuf_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
               <tr>
-                <td class="auto-style15">Location:</td>
+                <td class="auto-style15">Origin:</td>
                 <td>
-                    <asp:TextBox ID="loc_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="orgn_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
               <tr>
-                <td class="auto-style15">Site engineer:</td>
+                <td class="auto-style15">Sub-contractor's name:</td>
                 <td>
-                    <asp:TextBox ID="site_engr" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="sub_con_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
-              <tr>
-                <td class="auto-style15">Reason of C & D:</td>
-                <td>
-                    <asp:TextBox ID="cd_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
-                <td class="auto-style15">Sub-contractor:</td>
-                <td>
-                    <asp:TextBox ID="subcon_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
+                    <tr>
                 <td class="auto-style15">Decipline:</td>
                 <td>
-                    <asp:TextBox ID="decipline" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="dspln_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
             
               <tr>
+                <td class="auto-style15">Approval Date:</td>
+                <td>
+                    <asp:TextBox ID="app_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+                </td>
+            </tr>
+            
+              <tr>
+                <td class="auto-style15">Status of authority approvals:</td>
+                <td>
+                    <asp:TextBox ID="status_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                </td>
+            </tr>
+            
+              <tr>
+                <td class="auto-style15">Letter reference of authority approvals:</td>
+                <td>
+                    <asp:TextBox ID="ltr_ref_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                </td>
+            </tr>
+              <tr>
+                <td class="auto-style15">Material sample inspection accepted/rejected status:</td>
+                <td>
+                        <asp:DropDownList ID="msi_tb" AppendDataBoundItems="true" DataTextField="msi" DataValueField="msi" runat="server">
+                      
+                        <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
+                            <asp:ListItem>Accepted</asp:ListItem>
+                            <asp:ListItem>Rejected</asp:ListItem>
+                   </asp:DropDownList>
+                </td>
+            </tr>
+              <tr>
+                <td class="auto-style9">Long lead & non long lead items:</td>
+                <td class="auto-style10">
+                    <asp:TextBox ID="lllli_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
+                  </td>
+            </tr>
+                   <tr>
                 <td class="auto-style15">No. of days:</td>
                 <td>
                     <asp:TextBox ID="no_of_dys_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
@@ -271,12 +296,6 @@
                 <td>
                     <asp:TextBox ID="remrk_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
-            </tr>
-              <tr>
-                <td class="auto-style9">Reason for over due:</td>
-                <td class="auto-style10">
-                    <asp:TextBox ID="rsn_fr_over_due" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
-                  </td>
             </tr>
               <tr>
 <td class="auto-style15">Document:</td>
@@ -501,7 +520,7 @@
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
               </asp:GridView>  
                       </asp:Panel>
-              </div> 
+              </div>
     </form>
 </body>
 </html>

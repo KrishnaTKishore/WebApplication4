@@ -10,34 +10,34 @@
 namespace WebApplication4 {
     
     
-    public partial class DCmspg {
+    public partial class DCncrpg {
         
         /// <summary>
-        /// form1 control.
+        /// form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// matno_tb control.
+        /// ncr_ref_no_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox matno_tb;
+        protected global::System.Web.UI.WebControls.TextBox ncr_ref_no_tb;
         
         /// <summary>
-        /// mat_desc_tb control.
+        /// ncr_desc_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mat_desc_tb;
+        protected global::System.Web.UI.WebControls.TextBox ncr_desc_tb;
         
         /// <summary>
         /// usrddlprj control.
@@ -49,112 +49,103 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.DropDownList usrddlprj;
         
         /// <summary>
-        /// suplr_tb control.
+        /// org_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox suplr_tb;
+        protected global::System.Web.UI.WebControls.TextBox org_tb;
         
         /// <summary>
-        /// manuf_tb control.
+        /// dt_iss_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox manuf_tb;
+        protected global::System.Web.UI.WebControls.TextBox dt_iss_tb;
         
         /// <summary>
-        /// orgn_tb control.
+        /// root_cse_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orgn_tb;
+        protected global::System.Web.UI.WebControls.TextBox root_cse_tb;
         
         /// <summary>
-        /// sub_con_tb control.
+        /// desp_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sub_con_tb;
+        protected global::System.Web.UI.WebControls.TextBox desp_tb;
         
         /// <summary>
-        /// dspln_tb control.
+        /// site_eng_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dspln_tb;
+        protected global::System.Web.UI.WebControls.TextBox site_eng_tb;
         
         /// <summary>
-        /// app_dt_tb control.
+        /// iss_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox app_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox iss_tb;
         
         /// <summary>
-        /// status_tb control.
+        /// pca_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox status_tb;
+        protected global::System.Web.UI.WebControls.TextBox pca_tb;
         
         /// <summary>
-        /// ltr_ref_tb control.
+        /// aca_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ltr_ref_tb;
+        protected global::System.Web.UI.WebControls.TextBox aca_tb;
         
         /// <summary>
-        /// msi_tb control.
+        /// cai_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList msi_tb;
+        protected global::System.Web.UI.WebControls.TextBox cai_tb;
         
         /// <summary>
-        /// lllli_tb control.
+        /// vca_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lllli_tb;
+        protected global::System.Web.UI.WebControls.TextBox vca_tb;
         
         /// <summary>
-        /// no_of_dys_tb control.
+        /// dcd_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox no_of_dys_tb;
-        
-        /// <summary>
-        /// remrk_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox remrk_tb;
+        protected global::System.Web.UI.WebControls.TextBox dcd_tb;
         
         /// <summary>
         /// FileUpload1 control.
@@ -166,193 +157,130 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// rev0_sub_dt_tb control.
+        /// no_dys_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev0_sub_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox no_dys_tb;
         
         /// <summary>
-        /// rev0_ret_dt_tb control.
+        /// act_owner_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev0_ret_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox act_owner_tb;
         
         /// <summary>
-        /// rev0_stat_tb control.
+        /// cur_stat_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev0_stat_tb;
+        protected global::System.Web.UI.WebControls.TextBox cur_stat_tb;
         
         /// <summary>
-        /// rev1_sub_dt_tb control.
+        /// rea_ex_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev1_sub_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox rea_ex_tb;
         
         /// <summary>
-        /// rev1_ret_dt_tb control.
+        /// clsr_sht_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev1_ret_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox clsr_sht_tb;
         
         /// <summary>
-        /// rev1_stat_tb control.
+        /// consub_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev1_stat_tb;
+        protected global::System.Web.UI.WebControls.TextBox consub_tb;
         
         /// <summary>
-        /// rev2_sub_dt_tb control.
+        /// ca_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev2_sub_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox ca_tb;
         
         /// <summary>
-        /// rev2_ret_dt_tb control.
+        /// crd_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev2_ret_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox crd_tb;
         
         /// <summary>
-        /// rev2_stat_tb control.
+        /// ca_rmk_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev2_stat_tb;
+        protected global::System.Web.UI.WebControls.TextBox ca_rmk_tb;
         
         /// <summary>
-        /// rev3_sub_dt_tb control.
+        /// cid_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev3_sub_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox cid_tb;
         
         /// <summary>
-        /// rev3_ret_dt_tb control.
+        /// cvd_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev3_ret_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox cvd_tb;
         
         /// <summary>
-        /// rev3_stat_tb control.
+        /// org_rmk_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev3_stat_tb;
+        protected global::System.Web.UI.WebControls.TextBox org_rmk_tb;
         
         /// <summary>
-        /// rev4_sub_dt_tb control.
+        /// cls_dt_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev4_sub_dt_tb;
+        protected global::System.Web.UI.WebControls.TextBox cls_dt_tb;
         
         /// <summary>
-        /// rev4_ret_dt_tb control.
+        /// vc_rmk_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev4_ret_dt_tb;
-        
-        /// <summary>
-        /// rev4_stat_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev4_stat_tb;
-        
-        /// <summary>
-        /// rev5_sub_dt_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev5_sub_dt_tb;
-        
-        /// <summary>
-        /// rev5_ret_dt_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev5_ret_dt_tb;
-        
-        /// <summary>
-        /// rev5_stat_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev5_stat_tb;
-        
-        /// <summary>
-        /// rev6_sub_dt_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev6_sub_dt_tb;
-        
-        /// <summary>
-        /// rev6_ret_dt_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev6_ret_dt_tb;
-        
-        /// <summary>
-        /// rev6_stat_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rev6_stat_tb;
+        protected global::System.Web.UI.WebControls.TextBox vc_rmk_tb;
         
         /// <summary>
         /// notify control.
@@ -407,42 +335,6 @@ namespace WebApplication4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Clear;
-        
-        /// <summary>
-        /// cur_stat_sub_dt_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cur_stat_sub_dt_tb;
-        
-        /// <summary>
-        /// cur_stat_rsp_dt_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cur_stat_rsp_dt_tb;
-        
-        /// <summary>
-        /// cur_stat_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cur_stat_tb;
-        
-        /// <summary>
-        /// cur_stat_rev_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cur_stat_rev_tb;
         
         /// <summary>
         /// TextBox1 control.

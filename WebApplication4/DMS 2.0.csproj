@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="DCmirpg.aspx" />
     <Content Include="DCmspg.aspx" />
+    <Content Include="DCncrpg.aspx" />
     <Content Include="DCwirpg.aspx" />
     <Content Include="ADfirstpg.aspx" />
     <Content Include="App_Data\DMSdb.mdf" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="DCmspg.aspx.designer.cs">
       <DependentUpon>DCmspg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DCncrpg.aspx.cs">
+      <DependentUpon>DCncrpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCncrpg.aspx.designer.cs">
+      <DependentUpon>DCncrpg.aspx</DependentUpon>
     </Compile>
     <Compile Include="DCwirpg.aspx.cs">
       <DependentUpon>DCwirpg.aspx</DependentUpon>

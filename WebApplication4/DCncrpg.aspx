@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DCmspg.aspx.cs" Inherits="WebApplication4.DCmspg" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DCncrpg.aspx.cs" Inherits="WebApplication4.DCncrpg" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-         <script>
+    <script>
       /*  function openpopup(){
             var winpops = window.open("search.aspx", "", "width=400,height=400,scrollbars,resizable,");
             
@@ -16,7 +16,7 @@
         }
         function opensearch() {
             document.getElementById("Search").click();
-        }*/
+      }*/
         function validation() {
             var wir = document.getElementById("mat_desc_tb");
             var wirno = document.getElementById("matno_tb");
@@ -193,29 +193,29 @@
         }
 
         .auto-style15 {
-            width: 200px;
+            width: 210px;
             font-size: small;
         }
 
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
               <div class="hlf">
               <div class="tab11">
                   <br />
               <table >
              
               <tr>
-                <td class="auto-style15">Material submittal ref no.<span style="color:red" class="auto-style6">*</span>:</td>
+                <td class="auto-style15">Non-conformance ref no.<span style="color:red" class="auto-style6">*</span>:</td>
               <td>
-                    <asp:TextBox ID="matno_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="ncr_ref_no_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
               </tr>
                    <tr>
-                <td class="auto-style15">Material description<span style="color:red" class="auto-style6">*</span>:</td>
+                <td class="auto-style15">Description<span style="color:red" class="auto-style6">*</span>:</td>
               <td>
-                    <asp:TextBox ID="mat_desc_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="ncr_desc_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
               </tr>
                   <tr>
@@ -229,86 +229,80 @@
                 
                 </td>
                       </tr>
+                         <tr>
+                      <td class="auto-style15">
+                          <span class="auto-style15">Originator</span><span style="color:red" class="auto-style6">*</span></td>
+                <td class="auto-style9">
+                     <asp:TextBox ID="org_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+               
+                
+                </td>
+                             </tr>
+                      
                    <tr>
-                <td class="auto-style15">Supplier's name<span style="color:red" class="auto-style6">*</span>:</td>
+                <td class="auto-style15">Date issued<span style="color:red" class="auto-style6">*</span>:</td>
               <td>
-                    <asp:TextBox ID="suplr_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="dt_iss_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
                   </td>
              </tr>
                     <tr>
-                <td class="auto-style15">Manufacturer's name:</td>
+                <td class="auto-style15">Root cause:</td>
                 <td>
-                    <asp:TextBox ID="manuf_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="root_cse_tb" runat="server" CssClass="auto-style13" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
               <tr>
-                <td class="auto-style15">Origin:</td>
+                <td class="auto-style15">Decipline:</td>
                 <td>
-                    <asp:TextBox ID="orgn_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="desp_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
               <tr>
-                <td class="auto-style15">Sub-contractor's name:</td>
+                <td class="auto-style15">Site's engineer name:</td>
                 <td>
-                    <asp:TextBox ID="sub_con_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="site_eng_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
                     <tr>
-                <td class="auto-style15">Decipline:</td>
+                <td class="auto-style15">Issued:</td>
                 <td>
-                    <asp:TextBox ID="dspln_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="iss_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
             
               <tr>
-                <td class="auto-style15">Approval Date:</td>
+                <td class="auto-style15">Proposed corrective action:</td>
                 <td>
-                    <asp:TextBox ID="app_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="pca_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
             
               <tr>
-                <td class="auto-style15">Status of authority approvals:</td>
+                <td class="auto-style15">Approved corrective action:</td>
                 <td>
-                    <asp:TextBox ID="status_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="aca_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
             
               <tr>
-                <td class="auto-style15">Letter reference of authority approvals:</td>
+                <td class="auto-style15">Corrective action implementation date:</td>
                 <td>
-                    <asp:TextBox ID="ltr_ref_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="cai_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
               <tr>
-                <td class="auto-style15">Material sample inspection accepted/rejected status:</td>
+                <td class="auto-style15">Verification of corrective action date:</td>
                 <td>
-                        <asp:DropDownList ID="msi_tb" AppendDataBoundItems="true" DataTextField="msi" DataValueField="msi" runat="server">
-                      
-                        <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
-                            <asp:ListItem>Accepted</asp:ListItem>
-                            <asp:ListItem>Rejected</asp:ListItem>
-                   </asp:DropDownList>
-                </td>
+                      <asp:TextBox ID="vca_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
+               </td>
             </tr>
               <tr>
-                <td class="auto-style9">Long lead & non long lead items:</td>
+                <td class="auto-style9">Date of consultant decision:</td>
                 <td class="auto-style10">
-                    <asp:TextBox ID="lllli_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
+                    <asp:TextBox ID="dcd_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
                   </td>
             </tr>
-                   <tr>
-                <td class="auto-style15">No. of days:</td>
-                <td>
-                    <asp:TextBox ID="no_of_dys_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
-                <td class="auto-style15">Remark:</td>
-                <td>
-                    <asp:TextBox ID="remrk_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
+       
               <tr>
 <td class="auto-style15">Document:</td>
                 <td>
@@ -318,152 +312,100 @@
                 </td>
             </tr>
             </table></div> 
-              <div class="tab2">
+              <div class="tab11">
                 <table class="table">
-                           <tr><td colspan="2" class="auto-style13">Revision 00</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev0_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+                                   <tr>
+                <td class="auto-style15">No. of days open:</td>
+                <td>
+                    <asp:TextBox ID="no_dys_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev0_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+              <tr>
+                <td class="auto-style15">Action Owner:</td>
+                <td>
+                    <asp:TextBox ID="act_owner_tb" runat="server" CssClass="auto-style13" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev0_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                      <tr>
+                <td class="auto-style15">Current Status:</td>
+                <td>
+                    <asp:TextBox ID="cur_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
-                              <tr><td colspan="2" class="auto-style13">Revision 01</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev1_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+              <tr>
+                <td class="auto-style15">Reason for exceeding 14 days<span style="color:red" class="auto-style6">*</span>:</td>
+              <td>
+                    <asp:TextBox ID="rea_ex_tb" runat="server" CssClass="auto-style13" TextMode="MultiLine"></asp:TextBox>
+                </td>
+              </tr>
+                   <tr>
+                <td class="auto-style15">Closer sheet no.:<span style="color:red" class="auto-style6">*</span>:</td>
+              <td>
+                    <asp:TextBox ID="clsr_sht_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+                </td>
+              </tr>
+                  <tr>
+                      <td class="auto-style15">
+                          <span class="auto-style15">Contract or Submitted date</span><span style="color:red" class="auto-style6">*</span></td>
+                <td class="auto-style9">
+                    <asp:TextBox ID="consub_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
+               
+                </td>
+                      </tr>
+                   <tr>
+                <td class="auto-style15">Corrective Action<span style="color:red" class="auto-style6">*</span>:</td>
+              <td>
+                    <asp:TextBox ID="ca_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
+                  </td>
+             </tr>
+                    <tr>
+                <td class="auto-style15">Consultant response date:</td>
+                <td>
+                    <asp:TextBox ID="crd_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev1_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+              <tr>
+                <td class="auto-style15">Remarks:</td>
+                <td>
+                    <asp:TextBox ID="ca_rmk_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev1_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+              <tr>
+                <td class="auto-style15">Contractor implementation date:</td>
+                <td>
+                    <asp:TextBox ID="cid_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-                              <tr><td colspan="2" class="auto-style13">Revision 02</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev2_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+                    <tr>
+                <td class="auto-style15">consultant verification date:</td>
+                <td>
+                    <asp:TextBox ID="cvd_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev2_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+            
+              <tr>
+                <td class="auto-style15">originator remarks:</td>
+                <td>
+                    <asp:TextBox ID="org_rmk_tb" runat="server" TextMode="MultiLine" CssClass="auto-style13"></asp:TextBox>
                 </td>
             </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev2_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
+            
+              <tr>
+                <td class="auto-style15">closing date:</td>
+                <td>
+                    <asp:TextBox ID="cls_dt_tb" runat="server" CssClass="auto-style13" TextMode="Date"></asp:TextBox>
                 </td>
             </tr>
-                              <tr><td colspan="2" class="auto-style13">Revision 03</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev3_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
+            
+              <tr>
+                <td class="auto-style15">remaks:</td>
+                <td>
+                    <asp:TextBox ID="vc_rmk_tb" runat="server" CssClass="auto-style13" TextMode="MultiLine"></asp:TextBox>
                 </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev3_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev3_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-                 
+            </tr>           
                     </table>
                      </div>
-              <div class="tab3">
-                <table class="table">
-                              <tr><td colspan="2" class="auto-style13">Revision 04</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev4_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev4_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev4_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-                              <tr><td colspan="2" class="auto-style13">Revision 05</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev5_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev5_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev5_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-                              <tr><td colspan="2" class="auto-style13">Revision 06</td></tr>
-             <tr>
-                <td class="auto-style5">Submitted date:</td>
-             <td>
-                    <asp:TextBox ID="rev6_sub_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Returned date:</td>
-             <td>
-                    <asp:TextBox ID="rev6_ret_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style5">Status:</td>
-             <td>
-                    <asp:TextBox ID="rev6_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-
               
-        </table>
-      
-                </div>
-                   
               <div class="btncol">
               <div class="notification">
         
@@ -478,36 +420,7 @@
          
          <asp:Button ID="Clear"  CssClass="auto-style14"  runat="server" Text="CLEAR"  OnClick="Clear_Click"  /><br class="auto-style13" /><br class="auto-style13" />
             
-                   <div class="generate">  
-                      <p style="text-align: center;">  Auto-generated: Can Not Edit</p>                  
-              <p style="text-align: center;"> Current Status</p>            
-                       <table>
-              <tr>
-            <td class="auto-style12"> Submitted date:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_sub_dt_tb" runat="server" TextMode="Date" ReadOnly="True" CssClass="auto-style13" ></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
-                <td class="auto-style12"> Responsed date:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_rsp_dt_tb" runat="server" TextMode="Date" CssClass="auto-style13" ReadOnly="True"></asp:TextBox>
-                </td>
-            </tr>
-              <tr>
-                <td class="auto-style12">Status:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_tb" runat="server" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-                  <tr>
-                <td class="auto-style12">Total no. of revisions:</td>
-                <td>
-                    <asp:TextBox ID="cur_stat_rev_tb" runat="server" ReadOnly="True" CssClass="auto-style13"></asp:TextBox>
-                </td>
-            </tr>
-            </table>
-        </div>
+                   
                   </div>
                   <asp:TextBox ID="TextBox1" runat="server" Visible="False" CssClass="auto-style13"></asp:TextBox>
        </div>

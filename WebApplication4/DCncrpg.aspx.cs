@@ -57,6 +57,7 @@ namespace WebApplication4
             }
 
         }
+         
         void Disp()
         {
             if (con.State == ConnectionState.Closed)
@@ -77,6 +78,7 @@ namespace WebApplication4
             // TextBox1.Text = Convert.ToString(dt.Rows.Count);
             con.Close();
         }
+
         void Disp_no()
         {
             if (con.State == ConnectionState.Closed)
@@ -340,7 +342,19 @@ namespace WebApplication4
 
                         Disp();
                     }
-                    if (con.State == ConnectionState.Open)
+                else
+                {
+
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY ncr_ref_no) AS sl_no,* from ncr where ncr_ref_no='" + ncr_ref_no_tb.Text + "'";
+
+                }
+                if (con.State == ConnectionState.Open)
                     {
                         con.Close();
                     }
@@ -351,7 +365,8 @@ namespace WebApplication4
         protected void Clear_Click(object sender, EventArgs e)
         {
             ncr_ref_no_tb.Text = ""; 
-            ncr_desc_tb.Text = ""; 
+            ncr_desc_tb.Text = "";
+            usrddlprj.SelectedIndex = 0;
             org_tb.Text = ""; 
             dt_iss_tb.Text = "";
             root_cse_tb.Text = "";
@@ -378,6 +393,7 @@ namespace WebApplication4
             cls_dt_tb.Text = "";
             vc_rmk_tb.Text = "";
         }
+
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
 

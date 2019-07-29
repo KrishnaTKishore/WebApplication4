@@ -149,13 +149,11 @@
     float:left;
     width: 280px;
     height:70%;
-   
 }
 .tab3{
     float:left;
     width: 280px;
     height:70%;
-   
 }
 .tables{
     width:70%;

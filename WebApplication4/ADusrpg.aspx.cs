@@ -40,8 +40,6 @@ namespace WebApplication4
                 addnewcompbtn.Visible = false;
                 newcomptb.Visible = false;
                 newusrdesgtb.Visible = false;
-
-
                 //all different designations are displayed from the database
                 String strQuery = "select distinct user_designation from users";
                 SqlCommand cmd = new SqlCommand
@@ -58,17 +56,16 @@ namespace WebApplication4
                         con.Open();
                     }
                     usrddldes_tb.DataSource = cmd.ExecuteReader();
-                    usrddldes_tb.DataTextField = "user_designation";
+                    usrddldes_tb.DataTextField  = "user_designation";
                     usrddldes_tb.DataValueField = "user_designation";
                     usrddldes_tb.DataBind();con.Close();
                     //all the unique designations are shown in the drop down box in search part
-
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                     }
                     seausrdesgtb.DataSource= cmd.ExecuteReader();
-                    seausrdesgtb.DataTextField = "user_designation";
+                    seausrdesgtb.DataTextField  = "user_designation";
                     seausrdesgtb.DataValueField = "user_designation";
                     seausrdesgtb.DataBind();
                     con.Close();
@@ -80,15 +77,13 @@ namespace WebApplication4
                 finally
                 {
                     con.Close();
-
                 }
-
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
                 //all unique project names are retrieved from database
-                String strQuery1 = "select distinct prj_name from project";
+                String strQuery1 = "select prj_id, prj_name from project";
                 SqlCommand cmd1 = new SqlCommand
                 {
                     CommandType = CommandType.Text,
@@ -98,25 +93,23 @@ namespace WebApplication4
                 try
                 {
                     //all the unique projects are shown in the drop down box in add/update part
-
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                     }
                     usrddlprj.DataSource = cmd1.ExecuteReader();
                     usrddlprj.DataTextField = "prj_name";
-                    usrddlprj.DataValueField = "prj_name";
+                    usrddlprj.DataValueField = "prj_id";
                     usrddlprj.DataBind();
                     con.Close();
                     //all the unique projects are shown in the drop down box in search part
-
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                     }
                     ddlseaprj.DataSource = cmd1.ExecuteReader();
                     ddlseaprj.DataTextField = "prj_name";
-                    ddlseaprj.DataValueField = "prj_name";
+                    ddlseaprj.DataValueField = "prj_id";
                     ddlseaprj.DataBind();
                     con.Close();
                 }
@@ -128,8 +121,6 @@ namespace WebApplication4
                 {
                     con.Close();
                 }
-
-
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -155,7 +146,6 @@ namespace WebApplication4
                     usrddlcmpny.DataBind();
                     con.Close();
                     //all the unique company names are shown in the drop down box in select part
-
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -173,11 +163,8 @@ namespace WebApplication4
                 finally
                 {
                     con.Close();
-
                 }
             }
-
-
         }
         //this function helps in displaying the record based on the user_id 
         public void Disp_id()
@@ -231,7 +218,7 @@ namespace WebApplication4
             usrlname_tb.Text = "";
             usrddldes_tb.SelectedValue = " ";
             usrddlcmpny.SelectedValue = " ";
-            usrddlprj.SelectedValue = " ";
+            //usrddlprj.SelectedValue = "";
             usremail_tb.Text = "";
             usrmobnotb.Text = "";
             usrpass_tb.Text = "";
@@ -262,11 +249,35 @@ namespace WebApplication4
                 //adding new user details into the database
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into users(user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no,user_password) values ('" + usrid_tb.Text + "','" + usrfname_tb.Text + "','" + usrmname_tb.Text + "','" + usrlname_tb.Text + "','" + usrddlcmpny.Text + "','" + usrddlprj.Text + "','" + usrddldes_tb.Text + "','" + usremail_tb.Text + "','" + usrmobnotb.Text + "','" + usrpass_tb.Text + "')";
+                cmd.CommandText = "insert into users(user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no,user_password) values ('" + usrid_tb.Text + "','" + usrfname_tb.Text + "','" + usrmname_tb.Text + "','" + usrlname_tb.Text + "','" + usrddlcmpny.Text + "',' ','" + usrddldes_tb.Text + "','" + usremail_tb.Text + "','" + usrmobnotb.Text + "','" + usrpass_tb.Text + "')";
                 cmd.ExecuteNonQuery();
-                Clear_Click(this, new EventArgs());
                 con.Close();
-
+                foreach (ListItem li in usrddlprj.Items)
+                {
+                    // If the list item is selected
+                    if (li.Selected)
+                    {
+                        if (con.State == ConnectionState.Closed)
+                        {
+                            con.Open();
+                        }
+                        SqlCommand cmd1 = con.CreateCommand();
+                        cmd1.CommandType = CommandType.Text;
+                        cmd1.CommandText = "insert into usrprj(user_id,prj_id) values ('" + usrid_tb.Text + "','" + li.Value + "')";
+                        cmd1.ExecuteNonQuery();
+                        Clear_Click(this, new EventArgs());
+                        con.Close();
+                        /*
+                        // Retrieve the text of the selected list item
+                        Response.Write("Text = " + li.Text + ", ");
+                        // Retrieve the value of the selected list item
+                        Response.Write("Value = " + li.Value + ", ");
+                        // Retrieve the index of the selected list item
+                        Response.Write("Index = " + checkboxListEducation.Items.IndexOf(li).ToString());
+                        Response.Write("<br/>");*/
+                    }
+                }
+         
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -379,6 +390,7 @@ namespace WebApplication4
             }
             Clear_Click(this, new EventArgs());
             usrid_tb.Focus();
+            con.Close();
 
         }
         //clear all the textboxes and display the database in gridview

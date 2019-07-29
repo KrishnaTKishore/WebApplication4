@@ -187,10 +187,6 @@
             }
             
                 return true;
-           
-        
-        
-       
         }</script> 
 
     <link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" />
@@ -225,20 +221,16 @@
         }
     </style>
     </head>
-<body class="bodyh" >
-    <form id="form1" class="bodyh" runat="server" >
-        <div class="hlf">
-   <div class="combo1">
-          <div class="info">
-
-              <table class="table">
+<body  >
+    <form id="form1"  runat="server" >
+        <div class="hlf">   
+          <div class="tab11">
+              <table>
                   <tr>
                       <td class="auto-style2"><span class="auto-style6">User ID</span><span style="color:red" id="nnnn" class="auto-style6">*</span></td>
                       <td class="auto-style9">
-                          <asp:TextBox ID="usrid_tb" runat="server"  ></asp:TextBox>
-                       
-                      </td>
-                    
+                          <asp:TextBox ID="usrid_tb" runat="server"  ></asp:TextBox>                       
+                      </td>                    
                   </tr>
                   <tr>
                       <td class="auto-style2"> 
@@ -255,8 +247,7 @@
                       </td>
                       <td class="auto-style9">
                          <asp:TextBox ID="usrmname_tb" runat="server" ></asp:TextBox>
-                  </td>
-                      
+                  </td>                      
                   </tr>
                    <tr>
                       <td class="auto-style2">
@@ -264,10 +255,8 @@
                       </td>
                       <td class="auto-style9">
                            <asp:TextBox ID="usrlname_tb" runat="server" ></asp:TextBox>
-                      </td>
-                     
-                  </tr>               
-     
+                      </td>                     
+                  </tr>    
                        <tr>
                 <td class="auto-style2">
                     <span class="auto-style6">User Company</span><span style="color:red" class="auto-style6">*</span></td>
@@ -275,25 +264,19 @@
                     <asp:DropDownList ID="usrddlcmpny" AppendDataBoundItems="true" DataTextField="usrcomp" DataValueField="usrcomp" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="usrddlcmpny_SelectedIndexChanged">
                        <asp:ListItem Value="other" />
                         <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
-                   </asp:DropDownList>
-                    
+                   </asp:DropDownList>                    
                     <asp:TextBox ID="newcomptb" runat="server" ></asp:TextBox>
                     <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
                     <asp:Button ID="addnewcompbtn" runat="server"  Text="ADD" OnClick="addnewcompbtn_Click" />
-                </td>
-                
+                </td>                
             </tr>
                       <tr>
                 <td class="auto-style2">
                     <span class="auto-style6">User Project</span><span style="color:red" class="auto-style6">*</span></td>
                 <td class="auto-style9">
-                    <asp:DropDownList ID="usrddlprj" AppendDataBoundItems="true" DataTextField="usrprj" DataValueField="usrprj" runat="server">
-                      
-                        <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
-                   </asp:DropDownList>
-                
-                </td>
-                
+                    <asp:CheckBoxList ID="usrddlprj" runat="server">
+                    </asp:CheckBoxList>
+                </td>                
             </tr>
              <tr>
                 <td class="auto-style2">
@@ -306,37 +289,31 @@
                     <asp:TextBox ID="newusrdesgtb" runat="server"></asp:TextBox>
                     <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
                     <asp:Button ID="addnewdesbtn" runat="server"  Text="ADD" OnClick="addnewdesbtn_Click" />
-                </td>
-                
-            </tr>
-            
+                </td>                
+            </tr>            
                         <tr>
                 <td class="auto-style2">
                     <span class="auto-style6">Email</span><span style="color:red" class="auto-style6">*</span></td>
                 <td class="auto-style9">
                     <asp:TextBox ID="usremail_tb" runat="server" TextMode="Email" ></asp:TextBox>
-                </td>
-               
+                </td>               
             </tr>
                        <tr>
                 <td class="auto-style8">
                     Mobile no.</td>
                 <td class="auto-style9">
                     <asp:TextBox ID="usrmobnotb" runat="server" TextMode="Number"  ></asp:TextBox>
-                </td>
-               
+                </td>               
             </tr>
               <tr>
                 <td class="auto-style2">
                     <span class="auto-style6">User Password</span><span style="color:red" class="auto-style6">*</span></td>
                 <td class="auto-style5">
-                    <asp:TextBox ID="usrpass_tb" runat="server" ToolTip="password should include an upper-case,lower-case and a digit; the minimun length is 5" ></asp:TextBox>
-                    
+                    <asp:TextBox ID="usrpass_tb" runat="server" ToolTip="password should include an upper-case,lower-case and a digit; the minimun length is 5" ></asp:TextBox>                    
                   </td>
              </tr>              
-              </table></div>
-        
-    <div class="btncol1">
+              </table></div>        
+          <div class="btncol1">
         
         <asp:Button ID="Add_btn" CssClass="button" runat="server" Text="ADD" OnClientClick="return validation();" OnClick="Add_btn_Click" ViewStateMode="Enabled" /><br />
 
@@ -346,13 +323,11 @@
 
          <asp:Button ID="Clear"  CssClass="button" runat="server" Text="CLEAR" OnClick="Clear_Click" /><br />
 
-    </div>
-            </div>
-   <div class="combo">
-    <div class="notification">
+    </div>            
+          <div class="notification">
         <asp:Label ID="notify" runat="server" Text=""></asp:Label>
         </div>
-       <div class="auto-style4">
+          <div class="auto-style4">
            <table class="table">
                <tr>
                    <td> <asp:Label ID="Label3" runat="server" Text="USER ID"></asp:Label></td>
@@ -395,9 +370,7 @@
         
             
        </div>
-     
-        
-        <div class="search">
+          <div class="search">
             <table class="auto-style5">
                 <tr>
                     <td class="auto-style2">
@@ -459,10 +432,7 @@
                     
             </table>
             </div>
-       
-        
-       
-             <div class="btncol1">
+          <div class="btncol1">
                 
          <asp:Button ID="Search"  runat="server" CssClass="button1" Text="SEARCH" OnClick="Search_Click" ToolTip="Fill only two fields for searching" /><br />
 
@@ -474,9 +444,9 @@
 
    
        </div>
-       </div>
+       
             </div>
-         <div class="grid" >
+        <div class="grid" >
             <asp:GridView ID="GridView1" class="table1" runat="server"  AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                    <FooterStyle BackColor="White" ForeColor="#000066" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />

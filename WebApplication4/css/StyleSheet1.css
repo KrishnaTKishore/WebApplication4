@@ -7,20 +7,32 @@
     width: 800px;
 }
 .bodyh{
-   position:fixed;
-      left:0;
-      top:0;
-      margin:0;
-    width: 100%;
-    height: 100%;
+    width: 1000px;
+    height: 1000px;
 }
 .combo1 {
     height: 100%;
     width:400px;
 }
-.combo {
+.tab11 {
+    float: left;
+    width: 450px;
+}
+
+.tab2 {
+    float: left;
+    width: 280px;
+    height: 70%;
+}
+
+.tab3 {
+    float: left;
+    width: 280px;
+    height: 70%;
+}
+    .combo {
    
-    height: 100%;
+   float:right;
     width:400px;
    
 }
@@ -33,11 +45,12 @@
     width: 100px;
 }
 .btncol1 {
-    width: 100px;
+    width: 250px;
+    float:left;
    
 }
 .hlf {
-    height: 70%;
+    height: 50%;
     width: 100%;
 }
 .button {

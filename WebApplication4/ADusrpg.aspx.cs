@@ -32,6 +32,7 @@ namespace WebApplication4
             }
             if (!IsPostBack)
             {
+
                 Disp();
                 //new fields adding in ddl is hidden
                 PlaceHolder1.Visible = false;
@@ -55,17 +56,25 @@ namespace WebApplication4
                     {
                         con.Open();
                     }
+                   /* if (usrddldes_tb.Items.Count > 0)
+                    {
+                        usrddldes_tb.Items.Clear();
+                    }*/
                     usrddldes_tb.DataSource = cmd.ExecuteReader();
-                    usrddldes_tb.DataTextField  = "user_designation";
+                    usrddldes_tb.DataTextField = "user_designation";
                     usrddldes_tb.DataValueField = "user_designation";
-                    usrddldes_tb.DataBind();con.Close();
+                    usrddldes_tb.DataBind(); con.Close();
                     //all the unique designations are shown in the drop down box in search part
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                     }
-                    seausrdesgtb.DataSource= cmd.ExecuteReader();
-                    seausrdesgtb.DataTextField  = "user_designation";
+                   /* if (seausrdesgtb.Items.Count > 0)
+                    {
+                        seausrdesgtb.Items.Clear();
+                    }*/
+                    seausrdesgtb.DataSource = cmd.ExecuteReader();
+                    seausrdesgtb.DataTextField = "user_designation";
                     seausrdesgtb.DataValueField = "user_designation";
                     seausrdesgtb.DataBind();
                     con.Close();
@@ -84,6 +93,7 @@ namespace WebApplication4
                 }
                 //all unique project names are retrieved from database
                 String strQuery1 = "select prj_id, prj_name from project";
+
                 SqlCommand cmd1 = new SqlCommand
                 {
                     CommandType = CommandType.Text,
@@ -97,6 +107,11 @@ namespace WebApplication4
                     {
                         con.Open();
                     }
+                    /*
+                    if (usrddlprj.Items.Count > 0)
+                    {
+                        usrddlprj.Items.Clear();
+                    }*/
                     usrddlprj.DataSource = cmd1.ExecuteReader();
                     usrddlprj.DataTextField = "prj_name";
                     usrddlprj.DataValueField = "prj_id";
@@ -107,6 +122,11 @@ namespace WebApplication4
                     {
                         con.Open();
                     }
+                    /*
+                    if (ddlseaprj.Items.Count > 0)
+                    {
+                        ddlseaprj.Items.Clear();
+                    }*/
                     ddlseaprj.DataSource = cmd1.ExecuteReader();
                     ddlseaprj.DataTextField = "prj_name";
                     ddlseaprj.DataValueField = "prj_id";
@@ -140,6 +160,11 @@ namespace WebApplication4
                     {
                         con.Open();
                     }
+                    /*
+                    if (usrddlcmpny.Items.Count > 0)
+                    {
+                        usrddlprj.Items.Clear();
+                    }*/
                     usrddlcmpny.DataSource = cmd2.ExecuteReader();
                     usrddlcmpny.DataTextField = "company_name";
                     usrddlcmpny.DataValueField = "company_name";
@@ -150,6 +175,11 @@ namespace WebApplication4
                     {
                         con.Open();
                     }
+                    /*
+                    if (ddlseaprj.Items.Count > 0)
+                    {
+                        ddlseaprj.Items.Clear();
+                    }*/
                     ddlseacomp.DataSource = cmd2.ExecuteReader();
                     ddlseacomp.DataTextField = "company_name";
                     ddlseacomp.DataValueField = "company_name";
@@ -165,6 +195,7 @@ namespace WebApplication4
                     con.Close();
                 }
             }
+            
         }
         //this function helps in displaying the record based on the user_id 
         public void Disp_id()
@@ -176,7 +207,7 @@ namespace WebApplication4
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             //details except password is diplayed in the gridview
-            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no ,user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no from users where user_id ='" + usrid_tb.Text + "'";
+            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no ,user_id,first_name,middle_name,last_name,company_name,user_designation,user_email,mobile_no from users where user_id ='" + usrid_tb.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -197,7 +228,7 @@ namespace WebApplication4
             }
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no from users ";
+            cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,user_id,first_name,middle_name,last_name,company_name,user_designation,user_email,mobile_no from users ";
 
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -207,7 +238,6 @@ namespace WebApplication4
             GridView1.DataBind();
             // GridView1.Columns[11].Visible = false;
             con.Close();
-
         }
         //revert back to the empty text boxes
         public void Revert()
@@ -232,10 +262,8 @@ namespace WebApplication4
         //this helps in adding new record to the database
         protected void Add_btn_Click(object sender, EventArgs e)
         {
-
             // ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Func()", true);
             Disp_id();
-
             if (TextBox1.Text == "1")
             {
                 notify.Text = "<span style= 'color:red'>\n \nTwo employees can not share the same user ID...</span> Please use update to modify details or change the user id for a new user";
@@ -249,11 +277,11 @@ namespace WebApplication4
                 //adding new user details into the database
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into users(user_id,first_name,middle_name,last_name,company_name,project_name,user_designation,user_email,mobile_no,user_password) values ('" + usrid_tb.Text + "','" + usrfname_tb.Text + "','" + usrmname_tb.Text + "','" + usrlname_tb.Text + "','" + usrddlcmpny.Text + "',' ','" + usrddldes_tb.Text + "','" + usremail_tb.Text + "','" + usrmobnotb.Text + "','" + usrpass_tb.Text + "')";
+                cmd.CommandText = "insert into users(user_id,first_name,middle_name,last_name,company_name,user_designation,user_email,mobile_no,user_password) values ('" + usrid_tb.Text + "','" + usrfname_tb.Text + "','" + usrmname_tb.Text + "','" + usrlname_tb.Text + "','" + usrddlcmpny.Text + "','" + usrddldes_tb.Text + "','" + usremail_tb.Text + "','" + usrmobnotb.Text + "','" + usrpass_tb.Text + "')";
                 cmd.ExecuteNonQuery();
-                con.Close();
+                con.Close();                
                 foreach (ListItem li in usrddlprj.Items)
-                {
+                {                   
                     // If the list item is selected
                     if (li.Selected)
                     {
@@ -265,19 +293,18 @@ namespace WebApplication4
                         cmd1.CommandType = CommandType.Text;
                         cmd1.CommandText = "insert into usrprj(user_id,prj_id) values ('" + usrid_tb.Text + "','" + li.Value + "')";
                         cmd1.ExecuteNonQuery();
-                        Clear_Click(this, new EventArgs());
+                        // Clear_Click(this, new EventArgs());
                         con.Close();
-                        /*
-                        // Retrieve the text of the selected list item
-                        Response.Write("Text = " + li.Text + ", ");
-                        // Retrieve the value of the selected list item
-                        Response.Write("Value = " + li.Value + ", ");
-                        // Retrieve the index of the selected list item
-                        Response.Write("Index = " + checkboxListEducation.Items.IndexOf(li).ToString());
-                        Response.Write("<br/>");*/
-                    }
-                }
-         
+                    }                   
+                    /*
+                    // Retrieve the text of the selected list item
+                    Response.Write("Text = " + li.Text + ", ");
+                    // Retrieve the value of the selected list item
+                    Response.Write("Value = " + li.Value + ", ");
+                    // Retrieve the index of the selected list item
+                    Response.Write("Index = " + checkboxListEducation.Items.IndexOf(li).ToString());
+                    Response.Write("<br/>");*/                
+                }         
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -298,7 +325,6 @@ namespace WebApplication4
             if ((newusrdesgtb.Text == "") || (newusrdesgtb.Text == " "))
             {
                 notify.Text = "<span style= 'color:red'>enter a valid designation</span>";
-
             }
             else
             {
@@ -344,13 +370,11 @@ namespace WebApplication4
             }
             usrlname_tb.Text = GridView1.SelectedRow.Cells[5].Text;
             usrddlcmpny.SelectedValue = GridView1.SelectedRow.Cells[6].Text;
-            usrddlprj.SelectedValue = GridView1.SelectedRow.Cells[7].Text;
             PlaceHolder1.Visible = false;
             PlaceHolder2.Visible = false;
-            usrddldes_tb.SelectedValue = GridView1.SelectedRow.Cells[8].Text;
-            usremail_tb.Text = GridView1.SelectedRow.Cells[9].Text;
-            usrmobnotb.Text = GridView1.SelectedRow.Cells[10].Text;
-
+            usrddldes_tb.SelectedValue = GridView1.SelectedRow.Cells[7].Text;
+            usremail_tb.Text = GridView1.SelectedRow.Cells[8].Text;
+            usrmobnotb.Text = GridView1.SelectedRow.Cells[9].Text;
         }
         //deleting records from database by taking id as reference
         protected void Delete_Click(object sender, EventArgs e)
@@ -374,8 +398,12 @@ namespace WebApplication4
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "delete from users where user_id ='" + usrid_tb.Text + "'";
-
                // cmd.CommandText = "delete from usrprj where user_id ='" + usrid_tb.Text + "'";
+                cmd.ExecuteNonQuery();
+                SqlCommand cmd1 = con.CreateCommand();
+                cmd1.CommandType = CommandType.Text;
+                cmd1.CommandText = "delete from usrprj where user_id ='" + usrid_tb.Text + "'";
+                // cmd.CommandText = "delete from usrprj where user_id ='" + usrid_tb.Text + "'";
                 cmd.ExecuteNonQuery();
                 Disp_id();
                 if (TextBox1.Text == "0")
@@ -391,7 +419,6 @@ namespace WebApplication4
             Clear_Click(this, new EventArgs());
             usrid_tb.Focus();
             con.Close();
-
         }
         //clear all the textboxes and display the database in gridview
         protected void Clear_Click(object sender, EventArgs e)
@@ -404,7 +431,6 @@ namespace WebApplication4
         //updates the database by taking the id as the primary key
         protected void Update_Click(object sender, EventArgs e)
         {
-
             Add_btn.OnClientClick = "return validation();";
             Disp_id();
             if (Convert.ToInt32(TextBox1.Text) != 1)
@@ -413,7 +439,6 @@ namespace WebApplication4
             }
             else
             {
-
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -421,19 +446,33 @@ namespace WebApplication4
                 //updating user details into the database
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = " UPDATE users SET first_name = '" + usrfname_tb.Text + "', middle_name ='" + usrmname_tb.Text + "',last_name='" + usrlname_tb.Text + "',project_name='" + usrddlprj.Text + "',company_name='" + usrddlcmpny.Text + "',user_designation='" + usrddldes_tb.Text + "',user_email='" + usremail_tb.Text + "',user_password='" + usrpass_tb.Text + "'WHERE user_id='" + usrid_tb.Text + "'";
+                cmd.CommandText = " UPDATE users SET first_name = '" + usrfname_tb.Text + "', middle_name ='" + usrmname_tb.Text + "',last_name='" + usrlname_tb.Text + "',company_name='" + usrddlcmpny.Text + "',user_designation='" + usrddldes_tb.Text + "',user_email='" + usremail_tb.Text + "',user_password='" + usrpass_tb.Text + "'WHERE user_id='" + usrid_tb.Text + "'";
                 //cmd.CommandText = "UPDATE users SET prj_id =(select prj_id from project where prj_name='"+ usrddlprj.Text+"') WHERE user_id = '" + usrid_tb.Text + "'";
-
-
                 cmd.ExecuteNonQuery();
+                foreach (ListItem li in usrddlprj.Items)
+                {
+                    // If the list item is selected
+                    if (li.Selected)
+                    {
+                        if (con.State == ConnectionState.Closed)
+                        {
+                            con.Open();
+                        }
+                        SqlCommand cmd1 = con.CreateCommand();
+                        cmd1.CommandType = CommandType.Text;
+                       // cmd1.CommandText = "insert into usrprj(user_id,prj_id) values ('" + usrid_tb.Text + "','" + li.Value + "')";
+                        cmd1.CommandText = " UPDATE usrprj SET prj_id = '" + li.Value + "'WHERE user_id='" + usrid_tb.Text + "'";
+                        cmd1.ExecuteNonQuery();
+                        // Clear_Click(this, new EventArgs());
+                        con.Close();
+                    }
+                }
                 Clear_Click(this, new EventArgs());
                 if (con.State == ConnectionState.Open)
                     con.Close();
                 Clear_Click(this, new EventArgs());
-            }
-            
+            }            
             usrid_tb.Focus();
-
         }
         //if the company drop down list's 'other option' is selected, textbox for entering a new company name and add to ddl btn pops up 
         protected void usrddlcmpny_SelectedIndexChanged(object sender, EventArgs e)
@@ -456,7 +495,6 @@ namespace WebApplication4
                 //add new company btn is invisible
                 addnewcompbtn.Visible = false;
             }
-
         }
         //if the designation's ddl's 'other' option is selected, textbox for entering a new designation name is added
         protected void usrddldes_tb_SelectedIndexChanged(object sender, EventArgs e)
@@ -485,12 +523,10 @@ namespace WebApplication4
             {
                 con.Open();
             }
-
             //if search text is not provided, it should show an appropriate message.
             if ((seausrIDtb.Text == "") && (seausrFNtb.Text == "") && (seausrLNtb.Text == "") && (seausrdesgtb.SelectedIndex == 0) && (ddlseaprj.SelectedIndex == 0) && (ddlseacomp.SelectedIndex == 0))
             {
-                notify.Text = "<span style= 'color:red'>\n Please enter valid data for searching...no values entered for searching </span>";
-                
+                notify.Text = "<span style= 'color:red'>\n Please enter valid data for searching...no values entered for searching </span>";                
             }
             else { 
             SqlCommand cmd = con.CreateCommand();
@@ -511,28 +547,24 @@ namespace WebApplication4
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where last_name='" + seausrLNtb.Text + "' and user_id='" + seausrIDtb.Text + "'";
-
                         }
                        //id + designation
                         if (seausrdesgtb.SelectedIndex != 0)
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_designation='" + seausrdesgtb.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
-
-
                         }
-                        if (ddlseaprj.SelectedIndex != 0)
+                      /*  if (ddlseaprj.SelectedIndex != 0)
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
 
-                        }
+                        }*/
                         //id + company
                         if (ddlseacomp.SelectedIndex != 0)
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where company_name='" + ddlseacomp.SelectedValue + "' and user_id='" + seausrIDtb.Text + "'";
-
                         }
                         cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where user_id='" + seausrIDtb.Text + "'";
 
@@ -561,13 +593,13 @@ namespace WebApplication4
 
 
                         }
-                        
+                        /*
                         if (ddlseaprj.SelectedIndex != 0)
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and first_name='" + seausrFNtb.Text + "'";
 
-                        }
+                        }*/
                         if (ddlseacomp.SelectedIndex != 0)
                         {
                             c++;
@@ -595,12 +627,13 @@ namespace WebApplication4
 
 
                         }
+                        /*
                         if (ddlseaprj.SelectedIndex != 0)
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "' and last_name='" + seausrLNtb.Text + "'";
 
-                        }
+                        }*/
                         if (ddlseacomp.SelectedIndex != 0)
                         {
                             c++;
@@ -614,12 +647,12 @@ namespace WebApplication4
                     if ((seausrdesgtb.SelectedIndex != 0) && (c == 0))
                     {
                         c++;
-                        if (ddlseaprj.SelectedIndex != 0)
+                      /*  if (ddlseaprj.SelectedIndex != 0)
                         {
                             c++;
                             cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY user_id) AS sl_no,* from users where project_name='" + ddlseaprj.SelectedValue + "'and user_designation='" + seausrdesgtb.SelectedValue + "'";
 
-                        }
+                        }*/
                         if (ddlseacomp.SelectedIndex != 0)
                         {
                             c++;
@@ -635,7 +668,7 @@ namespace WebApplication4
                             Disp();
                         }
                     }
-                    
+                    /*
                     if ((ddlseaprj.SelectedIndex != 0) && (c == 0))
                     {
                         c++;
@@ -653,7 +686,7 @@ namespace WebApplication4
                             notify.Text = "<span style= 'color:red'>\n Please enter not more than two values for searching </span>";
                             Disp();
                         }
-                    }
+                    }*/
                     if ((ddlseacomp.SelectedIndex != 0) && (c == 0))
                     {
                         c++;
@@ -692,8 +725,8 @@ namespace WebApplication4
                     {
                         con.Close();
                     }
+                    showpass.Visible = true;
                 }
-
             }
         }
         
@@ -705,11 +738,10 @@ namespace WebApplication4
             Labmnm.Text = GridView1.SelectedRow.Cells[4].Text;
             Lablnm.Text = GridView1.SelectedRow.Cells[5].Text;
             Labcmpy.Text = GridView1.SelectedRow.Cells[6].Text;
-            Labprj.Text = GridView1.SelectedRow.Cells[7].Text;
-            Labdesg.Text = GridView1.SelectedRow.Cells[8].Text;
-            Labmail.Text = GridView1.SelectedRow.Cells[9].Text;
-            Labmob.Text = GridView1.SelectedRow.Cells[10].Text;
-           TextBox2.Text = GridView1.SelectedRow.Cells[11].Text;
+            Labdesg.Text = GridView1.SelectedRow.Cells[7].Text;
+            Labmail.Text = GridView1.SelectedRow.Cells[8].Text;
+            Labmob.Text = GridView1.SelectedRow.Cells[9].Text;
+           TextBox2.Text = GridView1.SelectedRow.Cells[10].Text;
                 Labpass.Text = "*****";
                 Disp();
       
@@ -737,7 +769,6 @@ namespace WebApplication4
             }
             usrlname_tb.Text = Lablnm.Text;
             usrddlcmpny.SelectedValue = Labcmpy.Text;
-            usrddlprj.SelectedValue = Labprj.Text;
             usrddldes_tb.SelectedValue =Labdesg.Text;
             usremail_tb.Text =Labmail.Text;
             if (Labmob.Text == "&nbsp;")
@@ -759,7 +790,6 @@ namespace WebApplication4
             Labmnm.Text = "";
             Lablnm.Text = "";
             Labcmpy.Text = "";
-            Labprj.Text = "";
             Labdesg.Text = "";
             Labmail.Text = "";
             Labmob.Text = "";

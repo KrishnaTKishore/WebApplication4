@@ -12,6 +12,7 @@
     <form id="form1" runat="server">
         <div>
            <h3> WELCOME DC</h3><br />
+            <asp:TextBox ID="logid" runat="server"></asp:TextBox>
             <br />
             <p>
             What would you like to start with?

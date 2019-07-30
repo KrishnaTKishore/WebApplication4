@@ -34,6 +34,11 @@ namespace WebApplication4
                 //checking if the entered credentials is dc login credentials 
                 if (emp_id.Text == (mr["user_id"].ToString()) && password.Text == (mr["user_password"].ToString()) && TextBox1.Text == "Document Controller")  // use the search function from DB
                 {
+
+                    HttpCookie Cookie = new HttpCookie("logid");
+                    Cookie.Value = emp_id.Text;
+                    Cookie.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(Cookie);
                     Server.Transfer("DCfirstpg.aspx");
 
                 }

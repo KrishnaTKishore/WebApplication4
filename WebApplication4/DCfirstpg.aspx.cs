@@ -11,7 +11,10 @@ namespace WebApplication4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["logid"] != null)
+            {
+                logid.Text= Request.Cookies["logid"].Value.ToString();
+            }
         }
 
         protected void add_prj_Click(object sender, EventArgs e)

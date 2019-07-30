@@ -238,22 +238,22 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.Label lab_id;
         
         /// <summary>
-        /// Label13 control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Labprj control.
+        /// Labdesg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labprj;
+        protected global::System.Web.UI.WebControls.Label Labdesg;
         
         /// <summary>
         /// Label4 control.
@@ -274,22 +274,22 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.Label Labfnm;
         
         /// <summary>
-        /// Label6 control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Labdesg control.
+        /// Labmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labdesg;
+        protected global::System.Web.UI.WebControls.Label Labmail;
         
         /// <summary>
         /// Label9 control.
@@ -310,22 +310,22 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.Label Labmnm;
         
         /// <summary>
-        /// Label2 control.
+        /// Label8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Labmail control.
+        /// Labmob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labmail;
+        protected global::System.Web.UI.WebControls.Label Labmob;
         
         /// <summary>
         /// Label10 control.
@@ -344,24 +344,6 @@ namespace WebApplication4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lablnm;
-        
-        /// <summary>
-        /// Label8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
-        
-        /// <summary>
-        /// Labmob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labmob;
         
         /// <summary>
         /// Label11 control.

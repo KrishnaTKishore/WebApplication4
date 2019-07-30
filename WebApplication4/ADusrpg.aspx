@@ -315,7 +315,7 @@
               </table></div>        
           <div class="btncol1">
         
-        <asp:Button ID="Add_btn" CssClass="button" runat="server" Text="ADD" OnClientClick="return validation();" OnClick="Add_btn_Click" ViewStateMode="Enabled" /><br />
+        <asp:Button ID="Add_btn" CssClass="button" runat="server" Text="ADD" OnClientClick="return validation();" OnClick="Add_btn_Click" /><br />
 
          <asp:Button ID="Update" CssClass="button"  runat="server" Text="UPDATE" OnClientClick="return validation();" OnClick="Update_Click" /><br />
 
@@ -332,27 +332,25 @@
                <tr>
                    <td> <asp:Label ID="Label3" runat="server" Text="USER ID"></asp:Label></td>
                    <td> <asp:Label ID="lab_id" runat="server" Text=""></asp:Label></td>
-                   <td><asp:Label ID="Label13" runat="server" Text="PROJECT"></asp:Label></td>
-                   <td><asp:Label ID="Labprj" runat="server" Text=""></asp:Label></td>
-               </tr>
-               <tr>
-                   <td> <asp:Label ID="Label4" runat="server" Text="FIRST NAME"></asp:Label> </td>
-                   <td> <asp:Label ID="Labfnm" runat="server" Text=""></asp:Label></td>
                    <td> <asp:Label ID="Label6" runat="server" Text="DESIGNATION"></asp:Label></td>
                    <td><asp:Label ID="Labdesg" runat="server" Text=""></asp:Label></td>
                </tr>
                <tr>
-                   <td> <asp:Label ID="Label9" runat="server" Text="MIDDLE NAME"></asp:Label> </td>
-                   <td> <asp:Label ID="Labmnm" runat="server" Text=""></asp:Label></td>
+                   <td> <asp:Label ID="Label4" runat="server" Text="FIRST NAME"></asp:Label> </td>
+                   <td> <asp:Label ID="Labfnm" runat="server" Text=""></asp:Label></td>
                    <td><asp:Label ID="Label2" runat="server" Text="E-MAIL ID"></asp:Label></td>
                    <td><asp:Label ID="Labmail" runat="server" Text=""></asp:Label></td>
+               </tr>
+               <tr>
+                   <td> <asp:Label ID="Label9" runat="server" Text="MIDDLE NAME"></asp:Label> </td>
+                   <td> <asp:Label ID="Labmnm" runat="server" Text=""></asp:Label></td>
+                   <td>  <asp:Label ID="Label8" runat="server" Text="MOBILE No."></asp:Label></td>
+                   <td> <asp:Label ID="Labmob" runat="server" Text=""></asp:Label></td>
                </tr>
 
                  <tr>
                    <td> <asp:Label ID="Label10" runat="server" Text="LAST NAME"></asp:Label> </td>
                    <td> <asp:Label ID="Lablnm" runat="server" Text=""></asp:Label></td>
-                   <td>  <asp:Label ID="Label8" runat="server" Text="MOBILE No."></asp:Label></td>
-                   <td> <asp:Label ID="Labmob" runat="server" Text=""></asp:Label></td>
                </tr>
                  <tr>
                    <td> <asp:Label ID="Label11" runat="server" Text="COMPANY NAME"></asp:Label> </td>

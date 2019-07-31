@@ -67,9 +67,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DCadbpg.aspx" />
     <Content Include="DCmirpg.aspx" />
     <Content Include="DCmspg.aspx" />
+    <Content Include="DCmsspg.aspx" />
     <Content Include="DCncrpg.aspx" />
+    <Content Include="DCrfipg.aspx" />
+    <Content Include="DCscpqpg.aspx" />
+    <Content Include="DCsdspg.aspx" />
+    <Content Include="DCsorpg.aspx" />
     <Content Include="DCwirpg.aspx" />
     <Content Include="ADfirstpg.aspx" />
     <Content Include="App_Data\DMSdb.mdf" />
@@ -84,12 +90,20 @@
     <Content Include="HtmlPage1.html" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="Login.aspx" />
+    <Content Include="OTfirstpg.aspx" />
     <Content Include="search.aspx" />
     <Content Include="trialpg.aspx" />
     <Content Include="Web.config" />
     <Content Include="ADusrpg.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DCadbpg.aspx.cs">
+      <DependentUpon>DCadbpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCadbpg.aspx.designer.cs">
+      <DependentUpon>DCadbpg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DCmirpg.aspx.cs">
       <DependentUpon>DCmirpg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,12 +118,47 @@
     <Compile Include="DCmspg.aspx.designer.cs">
       <DependentUpon>DCmspg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DCmsspg.aspx.cs">
+      <DependentUpon>DCmsspg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCmsspg.aspx.designer.cs">
+      <DependentUpon>DCmsspg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DCncrpg.aspx.cs">
       <DependentUpon>DCncrpg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DCncrpg.aspx.designer.cs">
       <DependentUpon>DCncrpg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DCrfipg.aspx.cs">
+      <DependentUpon>DCrfipg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCrfipg.aspx.designer.cs">
+      <DependentUpon>DCrfipg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DCscpqpg.aspx.cs">
+      <DependentUpon>DCscpqpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCscpqpg.aspx.designer.cs">
+      <DependentUpon>DCscpqpg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DCsdspg.aspx.cs">
+      <DependentUpon>DCsdspg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCsdspg.aspx.designer.cs">
+      <DependentUpon>DCsdspg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DCsorpg.aspx.cs">
+      <DependentUpon>DCsorpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DCsorpg.aspx.designer.cs">
+      <DependentUpon>DCsorpg.aspx</DependentUpon>
     </Compile>
     <Compile Include="DCwirpg.aspx.cs">
       <DependentUpon>DCwirpg.aspx</DependentUpon>
@@ -162,6 +211,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OTfirstpg.aspx.cs">
+      <DependentUpon>OTfirstpg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OTfirstpg.aspx.designer.cs">
+      <DependentUpon>OTfirstpg.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ADusrpg.aspx.cs">

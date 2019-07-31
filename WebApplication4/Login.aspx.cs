@@ -16,6 +16,14 @@ namespace WebApplication4
         protected void Page_Load(object sender, EventArgs e)
         {
             con.Open();
+            if (Request.Cookies["logid"] != null)
+            {
+                logid.Text = Request.Cookies["logid"].Value.ToString();
+            }
+            if (Request.Cookies["logdesg"] != null)
+            {
+                logdesg.Text = Request.Cookies["logdesg"].Value.ToString();
+            }
         }
 
         protected void Log_Click(object sender, EventArgs e)
@@ -39,19 +47,38 @@ namespace WebApplication4
                     Cookie.Value = emp_id.Text;
                     Cookie.Expires = DateTime.Now.AddDays(1);
                     Response.Cookies.Add(Cookie);
+                    HttpCookie Cookie1 = new HttpCookie("logdesg");
+                    Cookie1.Value = TextBox1.Text;
+                    Cookie1.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(Cookie1);
                     Server.Transfer("DCfirstpg.aspx");
 
                 }
                 //checking if the entered credentials is admin login credentials 
                 else if (emp_id.Text == (mr["user_id"].ToString()) && password.Text == (mr["user_password"].ToString()) && TextBox1.Text == "Admin")
                 {
+                    HttpCookie Cookie = new HttpCookie("logid");
+                    Cookie.Value = emp_id.Text;
+                    Cookie.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(Cookie);
+                    HttpCookie Cookie1 = new HttpCookie("logdesg");
+                    Cookie1.Value = TextBox1.Text;
+                    Cookie1.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(Cookie1);
                     Server.Transfer("ADfirstpg.aspx");
                 }
                 //checking is the user has entered the correct login credentials
                 else if (emp_id.Text == (mr["user_id"].ToString()) && password.Text == (mr["user_password"].ToString()))
                 {
-                    // Server.Transfer("OTfirstpg.aspx");
-                    Response.Write("WELCOME");
+                    HttpCookie Cookie = new HttpCookie("logid");
+                    Cookie.Value = emp_id.Text;
+                    Cookie.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(Cookie);
+                    HttpCookie Cookie1 = new HttpCookie("logdesg");
+                    Cookie1.Value = TextBox1.Text;
+                    Cookie1.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(Cookie1);
+                    Server.Transfer("OTfirstpg.aspx");
                 }
                 //error message
                 //if (emp_id.Text == null && password.Text == null && TextBox1.Text == null)

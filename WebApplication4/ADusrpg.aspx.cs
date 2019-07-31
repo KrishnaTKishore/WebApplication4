@@ -17,6 +17,14 @@ namespace WebApplication4
         //before any button is clicked, the first load page properties
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["logid"] != null)
+            {
+                logid.Text = Request.Cookies["logid"].Value.ToString();
+            }
+            if (Request.Cookies["logdesg"] != null)
+            {
+                logdesg.Text = Request.Cookies["logdesg"].Value.ToString();
+            }
             Hide.Visible = false;
             //the text box type is made into password via code so that the values are not encrypted
             usrpass_tb.Attributes["type"] = "password";

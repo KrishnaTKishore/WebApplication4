@@ -44,6 +44,9 @@
 &nbsp;<asp:Button ID="rfi" runat="server"   Text="REQUEST FOR INFORMATION LOG SHEET" class="firstpgbtn" OnClick="rfi_Click"  />
             <br />
 &nbsp;</div>
+        
+            <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
+            <asp:TextBox ID="logdesg" runat="server" Visible="False"></asp:TextBox>
     </form>
 </body>
 </html>

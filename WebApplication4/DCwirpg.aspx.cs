@@ -17,6 +17,14 @@ namespace WebApplication4
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["logid"] != null)
+            {
+                logid.Text = Request.Cookies["logid"].Value.ToString();
+            }
+            if (Request.Cookies["logdesg"] != null)
+            {
+                logdesg.Text = Request.Cookies["logdesg"].Value.ToString();
+            }
             Disp();
 
             /* Page lastpage = (Page)Context.Handler;

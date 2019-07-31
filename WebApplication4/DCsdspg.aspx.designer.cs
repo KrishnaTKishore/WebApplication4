@@ -10,7 +10,7 @@
 namespace WebApplication4 {
     
     
-    public partial class DCfirstpg {
+    public partial class DCsdspg {
         
         /// <summary>
         /// form1 control.
@@ -20,33 +20,6 @@ namespace WebApplication4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// add_prj control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button add_prj;
-        
-        /// <summary>
-        /// doc_db control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button doc_db;
-        
-        /// <summary>
-        /// vw_prj control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button vw_prj;
         
         /// <summary>
         /// logid control.

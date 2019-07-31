@@ -502,6 +502,9 @@
               </asp:GridView>  
                       </asp:Panel>
               </div> 
+        
+            <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
+            <asp:TextBox ID="logdesg" runat="server" Visible="False"></asp:TextBox>
     </form>
 </body>
 </html>

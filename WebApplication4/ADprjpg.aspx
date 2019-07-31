@@ -47,28 +47,118 @@
          }
          </script>
     <style type="text/css">
-        .auto-style5 {
-            width: 231px;
-        }
-        .auto-style6 {
-            width: 128px;
-        }
-        .auto-style7 {
-            width: 44px;
-        }
-        .auto-style8 {
-            width: 100%;
-            height: 100%;
-            font-size: small;
-        }
-        </style>
-   <link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" />
+        
+.fm{
+    
+    height:1200px;
+    width:100%;
+}
+
+.info {
+    float: left;
+    width: 600px;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+}
+
+.btncol {
+    width: 200px;
+}
+.combo {
+    width: 400px;
+}
+.notification {
+    background-color: lavender;
+    height: 20px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+.fm1 {
+    width: 800px;
+}
+.bodyh{
+    width: 1000px;
+    height: 1000px;
+}
+.tab11 {
+    float: left;
+    width: 450px;
+}
+
+.tab2 {
+    float: left;
+    width: 280px;
+    height: 70%;
+}
+
+.tab3 {
+    float: left;
+    width: 280px;
+    height: 70%;
+}
+  
+.btncol1 {
+    width: 250px;
+    float:left;
+   
+}
+.button {
+    position:center;
+    width: 90%;
+    height:50px;
+}
+.button1 {
+    position: center;
+    width: 90%;
+    height: 15%;
+}
+
+.disp {
+    background-color:darkgray;
+    height: 200px;
+    width: 400px;
+}
+.search {
+    float:left;
+    height:200px;
+    width: 200px;
+    top:40%;
+}
+.table1 {
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+}
+.grid {
+    bottom: 0px;
+    overflow: scroll;
+    position: static;
+    width: 100%;
+    height: 30%;
+    float: left;
+    
+}
+.firstpgbtn{
+    width: 300px;
+}
+
+    </style>
 </head>
 <body  >
-    <form id="form1" class="fm" runat="server">
-        <div class="hlf">
+    <form id="form1" runat="server">
      
-        <div class="combo1">
             <div class="info">
         <table class="table">
             <tr>
@@ -139,7 +229,7 @@
          <asp:Button ID="Delete" CssClass="button"  runat="server" Text="DELETE" OnClick="Delete_Click" /><br />
          <asp:Button ID="Clear"  CssClass="button"  runat="server" Text="CLEAR"  OnClick="Clear_Click"  /><br />
             </div>
-    </div>
+    
         <div class="combo">
     <div class="notification">
         <asp:Label ID="notify" runat="server" Text=""></asp:Label>
@@ -203,7 +293,7 @@
                  </div>
        
        </div>
-        </div>
+       
         <div class="grid" >
             <asp:GridView ID="GridView1" class="table1" runat="server"  AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" ShowHeader="true"  OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <FooterStyle BackColor="White" ForeColor="#000066" />
@@ -218,6 +308,9 @@
             </asp:GridView>   </div>
          <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
                  <br />
+            <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
+            <asp:TextBox ID="logdesg" runat="server" Visible="False"></asp:TextBox>
+            
     </form>
 </body>
 </html>

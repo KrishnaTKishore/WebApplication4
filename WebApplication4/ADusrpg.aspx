@@ -222,10 +222,12 @@
     </style>
     </head>
 <body  >
-    <form id="form1"  runat="server" >
+    <form id="form1" class="fm" runat="server" >
         <div class="hlf">   
-          <div class="tab11">
-              <table>
+            <div class="combo1">
+            <div class="info">
+        <table class="table">
+              
                   <tr>
                       <td class="auto-style2"><span class="auto-style6">User ID</span><span style="color:red" id="nnnn" class="auto-style6">*</span></td>
                       <td class="auto-style9">
@@ -313,7 +315,7 @@
                   </td>
              </tr>              
               </table></div>        
-          <div class="btncol1">
+          <div class="btncol">
         
         <asp:Button ID="Add_btn" CssClass="button" runat="server" Text="ADD" OnClientClick="return validation();" OnClick="Add_btn_Click" /><br />
 
@@ -323,11 +325,13 @@
 
          <asp:Button ID="Clear"  CssClass="button" runat="server" Text="CLEAR" OnClick="Clear_Click" /><br />
 
-    </div>            
+    </div>  
+                </div>
+                <div class="combo">
           <div class="notification">
         <asp:Label ID="notify" runat="server" Text=""></asp:Label>
         </div>
-          <div class="auto-style4">
+          <div class="disp">
            <table class="table">
                <tr>
                    <td> <asp:Label ID="Label3" runat="server" Text="USER ID"></asp:Label></td>
@@ -439,7 +443,7 @@
          <asp:Button ID="Clearsrch" runat="server" CssClass="button1" Text="CLEAR" OnClick="Clearsrch_Click" />
 
         <!-- <asp:Button ID="GrpSRCH"  runat="server" CssClass="button1" Text="GROUP SEARCH" />  -->
-
+</div>
    
        </div>
        
@@ -458,6 +462,9 @@
             </asp:GridView>   </div>
         <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
         <asp:TextBox ID="TextBox2" runat="server" Visible="False"></asp:TextBox>
+        
+            <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
+            <asp:TextBox ID="logdesg" runat="server" Visible="False"></asp:TextBox>
         </form>
         
     </body>

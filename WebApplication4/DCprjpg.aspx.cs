@@ -15,6 +15,14 @@ namespace WebApplication4
         //the gridview has all the records displayed when the page starts
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["logid"] != null)
+            {
+                logid.Text = Request.Cookies["logid"].Value.ToString();
+            }
+            if (Request.Cookies["logdesg"] != null)
+            {
+                logdesg.Text = Request.Cookies["logdesg"].Value.ToString();
+            }
             displaydata();
         }
         //when you search a record...the first records details are displayed into the label

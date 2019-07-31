@@ -16,7 +16,15 @@ namespace WebApplication4
 
             protected void Page_Load(object sender, EventArgs e)
             {
-                Disp();
+            if (Request.Cookies["logid"] != null)
+            {
+                logid.Text = Request.Cookies["logid"].Value.ToString();
+            }
+            if (Request.Cookies["logdesg"] != null)
+            {
+                logdesg.Text = Request.Cookies["logdesg"].Value.ToString();
+            }
+            Disp();
                 if (!IsPostBack)
                 {
                     if (con.State == ConnectionState.Closed)
@@ -24,7 +32,7 @@ namespace WebApplication4
                         con.Open();
                     }
                     //all unique project names are retrieved from database
-                    String strQuery1 = "select distinct prj_name from project";
+                    String strQuery1 = "select prj_name,prj_id from project";
                     SqlCommand cmd1 = new SqlCommand
                     {
                         CommandType = CommandType.Text,
@@ -41,7 +49,7 @@ namespace WebApplication4
                         }
                         usrddlprj.DataSource = cmd1.ExecuteReader();
                         usrddlprj.DataTextField = "prj_name";
-                        usrddlprj.DataValueField = "prj_name";
+                        usrddlprj.DataValueField = "prj_id";
                         usrddlprj.DataBind();
                         con.Close();
                         //all the unique projects are shown in the drop down box in search part
@@ -212,7 +220,11 @@ namespace WebApplication4
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "insert into mir(mat_insp_ref_no,mat_desc,mat_sub_ref,mat_qnty,manuf,suplr,dspln,actioner,cur_stat_sub_dt,cur_stat_rsp_dt,cur_stat,cur_stat_rev,no_of_dys,remrk,rsn_fr_over_due,doc,rev0_sub_dt,rev0_ret_dt,rev0_stat,rev1_sub_dt,rev1_ret_dt,rev1_stat,rev2_sub_dt,rev2_ret_dt,rev2_stat,rev3_sub_dt,rev3_ret_dt,rev3_stat,rev4_sub_dt,rev4_ret_dt,rev4_stat,rev5_sub_dt,rev5_ret_dt,rev5_stat,rev6_sub_dt,rev6_ret_dt,rev6_stat) values('" + matno_tb.Text + "','" + matdesc_tb.Text + "','" + mat_sub_ref_tb.Text + "','" + mat_qnty_tb.Text + "','" + manuf_tb.Text + "','" + suplr_tb.Text + "','" + dspln_tb.Text + "','" + actioner_tb.Text + "','" + cur_stat_sub_dt_tb.Text + "','" + cur_stat_rsp_dt_tb.Text + "','" + cur_stat_tb.Text + "','" + cur_stat_rev_tb.Text + "','" + no_of_dys_tb.Text + "','" + remrk_tb.Text + "','" + rsn_fr_over_due_tb.Text + "','" + FileUpload1.FileName + "','" + rev0_sub_dt_tb.Text + "','" + rev0_ret_dt_tb.Text + "','" + rev0_stat_tb.Text + "','" + rev1_sub_dt_tb.Text + "','" + rev1_ret_dt_tb.Text + "','" + rev1_stat_tb.Text + "','" + rev2_sub_dt_tb.Text + "','" + rev2_ret_dt_tb.Text + "','" + rev2_stat_tb.Text + "','" + rev3_sub_dt_tb.Text + "','" + rev3_ret_dt_tb.Text + "','" + rev3_stat_tb.Text + "','" + rev4_sub_dt_tb.Text + "','" + rev4_ret_dt_tb.Text + "','" + rev4_stat_tb.Text + "','" + rev5_sub_dt_tb.Text + "','" + rev5_ret_dt_tb.Text + "','" + rev5_stat_tb.Text + "','" + rev6_sub_dt_tb.Text + "','" + rev6_ret_dt_tb.Text + "','" + rev6_stat_tb.Text + "')";
                     cmd.ExecuteNonQuery();
-                    Clear_Click(this, new EventArgs());
+                SqlCommand cmd1 = con.CreateCommand();
+                cmd1.CommandType = CommandType.Text;
+                cmd1.CommandText = "insert into mirprj(mat_insp_ref_no,prj_id) values('" + matno_tb.Text + "','" + usrddlprj.SelectedValue + "')";
+                cmd1.ExecuteNonQuery();
+                Clear_Click(this, new EventArgs());
                     Disp();
                     con.Close();
                 }
@@ -478,8 +490,8 @@ namespace WebApplication4
             protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
             {
 
-                matno_tb.Text = GridView1.SelectedRow.Cells[4].Text;
-                matdesc_tb.Text = GridView1.SelectedRow.Cells[3].Text;
+                matno_tb.Text = GridView1.SelectedRow.Cells[3].Text;
+                matdesc_tb.Text = GridView1.SelectedRow.Cells[4].Text;
                 mat_sub_ref_tb.Text = GridView1.SelectedRow.Cells[5].Text;
                 mat_qnty_tb.Text = GridView1.SelectedRow.Cells[6].Text;
                 manuf_tb.Text = GridView1.SelectedRow.Cells[7].Text;

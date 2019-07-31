@@ -1,18 +1,53 @@
 ﻿
 .fm{
     
-    height:650px;
+    height:1200px;
+    width:100%;
 }
+.hlf {
+    height: 50%;
+    width: 100%;
+}
+.combo1 {
+    width: 800px;
+}
+.info {
+    float: left;
+    width: 600px;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+}
+
+.btncol {
+    width: 200px;
+}
+.combo {
+    width: 400px;
+}
+.notification {
+    background-color: lavender;
+    height: 20px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
 .fm1 {
     width: 800px;
 }
 .bodyh{
     width: 1000px;
     height: 1000px;
-}
-.combo1 {
-    height: 100%;
-    width:400px;
 }
 .tab11 {
     float: left;
@@ -30,28 +65,11 @@
     width: 280px;
     height: 70%;
 }
-    .combo {
-   
-   float:right;
-    width:400px;
-   
-}
-.info {
-    float: left;
-    width: 300px;
-   
-}
-.btncol {
-    width: 100px;
-}
+  
 .btncol1 {
     width: 250px;
     float:left;
    
-}
-.hlf {
-    height: 50%;
-    width: 100%;
 }
 .button {
     position:center;
@@ -63,11 +81,7 @@
     width: 90%;
     height: 15%;
 }
-.notification {
-    background-color:lavender;
-    height:20px;
-    width: 100%;
-}
+
 .disp {
     background-color:darkgray;
     height: 200px;
@@ -78,11 +92,6 @@
     height:200px;
     width: 200px;
     top:40%;
-}
-.table {
-    width: 100%;
-    height: 100%;
-    
 }
 .table1 {
     overflow: scroll;
@@ -101,3 +110,4 @@
 .firstpgbtn{
     width: 300px;
 }
+<link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" / >

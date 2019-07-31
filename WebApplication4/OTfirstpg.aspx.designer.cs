@@ -10,7 +10,7 @@
 namespace WebApplication4 {
     
     
-    public partial class DCdocfirstpg {
+    public partial class OTfirstpg {
         
         /// <summary>
         /// form1 control.
@@ -22,94 +22,85 @@ namespace WebApplication4 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// wir control.
+        /// notify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button wir;
+        protected global::System.Web.UI.WebControls.Label notify;
         
         /// <summary>
-        /// mir control.
+        /// Label14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button mir;
+        protected global::System.Web.UI.WebControls.Label Label14;
         
         /// <summary>
-        /// ms control.
+        /// seadoctyptb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ms;
+        protected global::System.Web.UI.WebControls.DropDownList seadoctyptb;
         
         /// <summary>
-        /// ncr control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ncr;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// sor control.
+        /// seaprjNMtb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sor;
+        protected global::System.Web.UI.WebControls.DropDownList seaprjNMtb;
         
         /// <summary>
-        /// mss control.
+        /// Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button mss;
+        protected global::System.Web.UI.WebControls.Button Search;
         
         /// <summary>
-        /// scpq control.
+        /// Clearsrch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button scpq;
+        protected global::System.Web.UI.WebControls.Button Clearsrch;
         
         /// <summary>
-        /// abd control.
+        /// panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button abd;
+        protected global::System.Web.UI.WebControls.Panel panel1;
         
         /// <summary>
-        /// sds control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sds;
-        
-        /// <summary>
-        /// rfi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button rfi;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
         /// logid control.
@@ -128,5 +119,14 @@ namespace WebApplication4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox logdesg;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
     }
 }

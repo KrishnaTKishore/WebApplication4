@@ -12,7 +12,6 @@
     <form id="form1" runat="server">
         <div>
            <h3> WELCOME DC</h3><br />
-            <asp:TextBox ID="logid" runat="server"></asp:TextBox>
             <br />
             <p>
             What would you like to start with?
@@ -24,6 +23,10 @@
             <br />
             <br />
 &nbsp;<asp:Button ID="vw_prj" runat="server"  Text="LOG DATABASE"       CssClass ="firstpgbtn" OnClick="vw_prj_Click"  />
+            <br />
+            <br />
+            <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
+            <asp:TextBox ID="logdesg" runat="server"></asp:TextBox>
             <br />
 &nbsp;</div>
     </form>

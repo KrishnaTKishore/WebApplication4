@@ -50,7 +50,7 @@ namespace WebApplication4
                 newcomptb.Visible = false;
                 newusrdesgtb.Visible = false;
                 //all different designations are displayed from the database
-                String strQuery = "select distinct user_designation from users";
+                String strQuery = "select  desg_name from Desg";
                 SqlCommand cmd = new SqlCommand
                 {
                     CommandType = CommandType.Text,
@@ -69,8 +69,8 @@ namespace WebApplication4
                         usrddldes_tb.Items.Clear();
                     }*/
                     usrddldes_tb.DataSource = cmd.ExecuteReader();
-                    usrddldes_tb.DataTextField = "user_designation";
-                    usrddldes_tb.DataValueField = "user_designation";
+                    usrddldes_tb.DataTextField = "desg_name";
+                    usrddldes_tb.DataValueField = "desg_name";
                     usrddldes_tb.DataBind(); con.Close();
                     //all the unique designations are shown in the drop down box in search part
                     if (con.State == ConnectionState.Closed)
@@ -82,8 +82,8 @@ namespace WebApplication4
                         seausrdesgtb.Items.Clear();
                     }*/
                     seausrdesgtb.DataSource = cmd.ExecuteReader();
-                    seausrdesgtb.DataTextField = "user_designation";
-                    seausrdesgtb.DataValueField = "user_designation";
+                    seausrdesgtb.DataTextField = "desg_name";
+                    seausrdesgtb.DataValueField = "desg_name";
                     seausrdesgtb.DataBind();
                     con.Close();
                 }
@@ -154,7 +154,7 @@ namespace WebApplication4
                     con.Open();
                 }
                 //all unique company names are retrieved from the database
-                String strQuery2 = "select distinct company_name from users";
+                String strQuery2 = "select comp_name from comp";
                 SqlCommand cmd2 = new SqlCommand
                 {
                     CommandType = CommandType.Text,
@@ -174,8 +174,8 @@ namespace WebApplication4
                         usrddlprj.Items.Clear();
                     }*/
                     usrddlcmpny.DataSource = cmd2.ExecuteReader();
-                    usrddlcmpny.DataTextField = "company_name";
-                    usrddlcmpny.DataValueField = "company_name";
+                    usrddlcmpny.DataTextField = "comp_name";
+                    usrddlcmpny.DataValueField = "comp_name";
                     usrddlcmpny.DataBind();
                     con.Close();
                     //all the unique company names are shown in the drop down box in select part
@@ -189,8 +189,8 @@ namespace WebApplication4
                         ddlseaprj.Items.Clear();
                     }*/
                     ddlseacomp.DataSource = cmd2.ExecuteReader();
-                    ddlseacomp.DataTextField = "company_name";
-                    ddlseacomp.DataValueField = "company_name";
+                    ddlseacomp.DataTextField = "comp_name";
+                    ddlseacomp.DataValueField = "comp_name";
                     ddlseacomp.DataBind();
                     con.Close();
                 }
@@ -336,8 +336,19 @@ namespace WebApplication4
             }
             else
             {
-                usrddldes_tb.Items.Insert(usrddldes_tb.Items.Count - 1, ((TextBox)PlaceHolder1.FindControl("newusrdesgtb")).Text);
-                notify.Text = "<span style= 'color:green'>the designation is successfully inserted into dropdown menu</span>";
+                //usrddldes_tb.Items.Insert(usrddldes_tb.Items.Count - 1, ((TextBox)PlaceHolder1.FindControl("newusrdesgtb")).Text);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                //adding new user details into the database
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into Desg(des_name) values ('" + newusrdesgtb.Text + "')";
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                notify.Text = "<span style= 'color:green'>the designation is successfully inserted into designation menu</span>";
                 usrddldes_tb.SelectedValue = newusrdesgtb.Text;
                 PlaceHolder1.Visible = false;
                 newusrdesgtb.Visible = false;
@@ -350,7 +361,19 @@ namespace WebApplication4
         {
             if (newcomptb.Text != " ")
             {
-                usrddlcmpny.Items.Insert(usrddlcmpny.Items.Count - 1, ((TextBox)PlaceHolder2.FindControl("newcomptb")).Text);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                //adding new user details into the database
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into comp(comp_name) values ('" + newcomptb.Text + "')";
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                // usrddlcmpny.Items.Insert(usrddlcmpny.Items.Count - 1, ((TextBox)PlaceHolder2.FindControl("newcomptb")).Text);
+
                 notify.Text = "<span style= 'color:green'>the company name is successfully inserted into dropdown menu</span>";
                 usrddlcmpny.SelectedValue = newcomptb.Text;
                 PlaceHolder2.Visible = false;

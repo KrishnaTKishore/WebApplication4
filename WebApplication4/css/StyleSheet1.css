@@ -1,28 +1,25 @@
 ﻿
-.fm{
-    
-    height:1200px;
-    width:100%;
+.fm{    
+    height:1200px;    
 }
 .hlf {
     height: 50%;
-    width: 100%;
 }
 .combo1 {
     width: 800px;
 }
 .info {
     float: left;
-    width: 600px;
+    width: 300px;
 }
-
 .table {
     width: 100%;
     height: 100%;
 }
-
 .btncol {
-    width: 200px;
+    float: left;
+    width: 100px;
+    height: 70%;
 }
 .combo {
     width: 400px;
@@ -32,16 +29,6 @@
     height: 20px;
     width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
 .fm1 {
     width: 800px;
 }
@@ -53,23 +40,19 @@
     float: left;
     width: 450px;
 }
-
 .tab2 {
     float: left;
     width: 280px;
     height: 70%;
 }
-
 .tab3 {
     float: left;
     width: 280px;
     height: 70%;
-}
-  
+}  
 .btncol1 {
     width: 250px;
     float:left;
-   
 }
 .button {
     position:center;
@@ -81,7 +64,6 @@
     width: 90%;
     height: 15%;
 }
-
 .disp {
     background-color:darkgray;
     height: 200px;
@@ -104,10 +86,8 @@
     position: static;
     width: 100%;
     height: 30%;
-    float: left;
-    
+    float: left;    
 }
 .firstpgbtn{
     width: 300px;
 }
-<link href="css/StyleSheet1.css" rel="stylesheet" type="text/css" / >

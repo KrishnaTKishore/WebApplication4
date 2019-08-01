@@ -14,8 +14,8 @@ namespace WebApplication4
     {   //establishing connection
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DMSdb.mdf;Integrated Security=True");
 
-            protected void Page_Load(object sender, EventArgs e)
-            {
+        protected void Page_Load(object sender, EventArgs e)
+        {
             if (Request.Cookies["logid"] != null)
             {
                 logid.Text = Request.Cookies["logid"].Value.ToString();
@@ -25,45 +25,85 @@ namespace WebApplication4
                 logdesg.Text = Request.Cookies["logdesg"].Value.ToString();
             }
             Disp();
-                if (!IsPostBack)
+            if (!IsPostBack)
+            {
+                if (con.State == ConnectionState.Closed)
                 {
+                    con.Open();
+                }
+                //all unique project names are retrieved from database
+                String strQuery1 = "select prj_name,prj_id from project";
+                SqlCommand cmd1 = new SqlCommand
+                {
+                    CommandType = CommandType.Text,
+                    CommandText = strQuery1,
+                    Connection = con
+                };
+                try
+                {
+                    //all the unique projects are shown in the drop down box in add/update part
+
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                     }
-                    //all unique project names are retrieved from database
-                    String strQuery1 = "select prj_name,prj_id from project";
-                    SqlCommand cmd1 = new SqlCommand
-                    {
-                        CommandType = CommandType.Text,
-                        CommandText = strQuery1,
-                        Connection = con
-                    };
-                    try
-                    {
-                        //all the unique projects are shown in the drop down box in add/update part
+                    usrddlprj.DataSource = cmd1.ExecuteReader();
+                    usrddlprj.DataTextField = "prj_name";
+                    usrddlprj.DataValueField = "prj_id";
+                    usrddlprj.DataBind();
+                    con.Close();
+                    //all the unique projects are shown in the drop down box in search part
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
 
-                        if (con.State == ConnectionState.Closed)
-                        {
-                            con.Open();
-                        }
-                        usrddlprj.DataSource = cmd1.ExecuteReader();
-                        usrddlprj.DataTextField = "prj_name";
-                        usrddlprj.DataValueField = "prj_id";
-                        usrddlprj.DataBind();
-                        con.Close();
-                        //all the unique projects are shown in the drop down box in search part
-                    }
-                    catch (Exception ex)
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                //all unique project names are retrieved from database
+                String strQuery2 = "select prj_name from project";
+
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.Text,
+                    CommandText = strQuery2,
+                    Connection = con
+                };
+                try
+                {
+                    //all the unique projects are shown in the drop down box in add/update part
+                    if (con.State == ConnectionState.Closed)
                     {
-                        throw ex;
+                        con.Open();
                     }
-                    finally
+                    /*
+                    if (usrddlprj.Items.Count > 0)
                     {
-                        con.Close();
-                    }
+                        usrddlprj.Items.Clear();
+                    }*/
+                    usrddlprj.DataSource = cmd1.ExecuteReader();
+                    usrddlprj.DataTextField = "prj_name";
+                    usrddlprj.DataValueField = "prj_id";
+                    usrddlprj.DataBind();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
                 }
             }
+        }
             void Disp()
             {
                 if (con.State == ConnectionState.Closed)

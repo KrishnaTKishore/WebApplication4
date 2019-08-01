@@ -307,7 +307,7 @@
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>   </div>
          <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
-                 <br />
+              
             <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
             <asp:TextBox ID="logdesg" runat="server" Visible="False"></asp:TextBox>
             

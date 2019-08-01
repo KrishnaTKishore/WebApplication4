@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
      <script>
-      /*  function openpopup(){
+      /*function openpopup(){
             var winpops = window.open("search.aspx", "", "width=400,height=400,scrollbars,resizable,");
             
             //document.getElementById("TextBox1").value = "999";
@@ -142,14 +142,12 @@
 .tab2{
     float:left;
     width: 280px;
-    height:70%;
-   
+    height:70%;   
 }
 .tab3{
     float:left;
     width: 280px;
-    height:70%;
-   
+    height:70%;   
 }
 .tables{
     width:70%;
@@ -198,8 +196,7 @@
        <div class="hlf">
               <div class="tab11">
                   <br />
-              <table >
-             
+              <table>             
               <tr>
                 <td class="auto-style15">Material inspection ref no.<span style="color:red" class="auto-style6">*</span>:</td>
               <td>
@@ -285,6 +282,14 @@
                     <asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style13" />
 
                 </td>
+            </tr>
+                  
+                      <tr>
+                <td class="auto-style9">User Project<span style="color:red" class="auto-style6">*</span></td>
+                <td class="auto-style10">
+                    <asp:CheckBoxList ID="accdes" runat="server">
+                    </asp:CheckBoxList>
+                </td>                
             </tr>
             </table></div> 
               <div class="tab2">

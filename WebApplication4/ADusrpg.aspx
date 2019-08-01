@@ -221,13 +221,11 @@
         }
     </style>
     </head>
-<body  >
+<body>
     <form id="form1" class="fm" runat="server" >
-        <div class="hlf">   
-            <div class="combo1">
+        <div class="hlf"> 
             <div class="info">
-        <table class="table">
-              
+        <table>              
                   <tr>
                       <td class="auto-style2"><span class="auto-style6">User ID</span><span style="color:red" id="nnnn" class="auto-style6">*</span></td>
                       <td class="auto-style9">
@@ -240,8 +238,7 @@
                       </td>
                       <td class="auto-style9">
                            <asp:TextBox ID="usrfname_tb" runat="server" ></asp:TextBox>
-                      </td>
-                      
+                      </td>                      
                   </tr>
                   <tr>
                       <td class="auto-style2">
@@ -304,7 +301,7 @@
                 <td class="auto-style8">
                     Mobile no.</td>
                 <td class="auto-style9">
-                    <asp:TextBox ID="usrmobnotb" runat="server" TextMode="Number"  ></asp:TextBox>
+                    <asp:TextBox ID="usrmobnotb" runat="server" TextMode="Number"></asp:TextBox>
                 </td>               
             </tr>
               <tr>
@@ -326,7 +323,7 @@
          <asp:Button ID="Clear"  CssClass="button" runat="server" Text="CLEAR" OnClick="Clear_Click" /><br />
 
     </div>  
-                </div>
+                
                 <div class="combo">
           <div class="notification">
         <asp:Label ID="notify" runat="server" Text=""></asp:Label>
@@ -337,18 +334,18 @@
                    <td> <asp:Label ID="Label3" runat="server" Text="USER ID"></asp:Label></td>
                    <td> <asp:Label ID="lab_id" runat="server" Text=""></asp:Label></td>
                    <td> <asp:Label ID="Label6" runat="server" Text="DESIGNATION"></asp:Label></td>
-                   <td><asp:Label ID="Labdesg" runat="server" Text=""></asp:Label></td>
+                   <td> <asp:Label ID="Labdesg" runat="server" Text=""></asp:Label></td>
                </tr>
                <tr>
                    <td> <asp:Label ID="Label4" runat="server" Text="FIRST NAME"></asp:Label> </td>
                    <td> <asp:Label ID="Labfnm" runat="server" Text=""></asp:Label></td>
-                   <td><asp:Label ID="Label2" runat="server" Text="E-MAIL ID"></asp:Label></td>
-                   <td><asp:Label ID="Labmail" runat="server" Text=""></asp:Label></td>
+                   <td> <asp:Label ID="Label2" runat="server" Text="E-MAIL ID"></asp:Label></td>
+                   <td> <asp:Label ID="Labmail" runat="server" Text=""></asp:Label></td>
                </tr>
                <tr>
                    <td> <asp:Label ID="Label9" runat="server" Text="MIDDLE NAME"></asp:Label> </td>
                    <td> <asp:Label ID="Labmnm" runat="server" Text=""></asp:Label></td>
-                   <td>  <asp:Label ID="Label8" runat="server" Text="MOBILE No."></asp:Label></td>
+                   <td> <asp:Label ID="Label8" runat="server" Text="MOBILE No."></asp:Label></td>
                    <td> <asp:Label ID="Labmob" runat="server" Text=""></asp:Label></td>
                </tr>
 
@@ -359,7 +356,7 @@
                  <tr>
                    <td> <asp:Label ID="Label11" runat="server" Text="COMPANY NAME"></asp:Label> </td>
                    <td> <asp:Label ID="Labcmpy" runat="server" Text=""></asp:Label></td>
-                   <td><asp:Label ID="Label7" runat="server" Text="PASSWORD"></asp:Label>
+                   <td> <asp:Label ID="Label7" runat="server" Text="PASSWORD"></asp:Label>
                     
                      </td>
                    <td>  <asp:Label ID="Labpass" runat="server" Text=""></asp:Label>
@@ -368,7 +365,7 @@
                    </td>
                </tr>
            </table>
-           <br />
+           <br/>
         
             
        </div>
@@ -379,46 +376,39 @@
             <asp:Label ID="Label14" runat="server" Text="User ID"></asp:Label>
                     </td>
                     <td class="auto-style3">
-            <asp:TextBox ID="seausrIDtb" runat="server"></asp:TextBox></td>
-                   
+            <asp:TextBox ID="seausrIDtb" runat="server"></asp:TextBox></td>                   
                 </tr>
                 <tr>
                     <td class="auto-style2">
             <asp:Label ID="Label15" runat="server" Text="First Name"></asp:Label>
                     </td>
                     <td class="auto-style3">
-            <asp:TextBox ID="seausrFNtb" runat="server"></asp:TextBox></td>
-                   
+            <asp:TextBox ID="seausrFNtb" runat="server"></asp:TextBox></td>                   
                 </tr>
                 <tr>
                     <td class="auto-style2">
             <asp:Label ID="Label16" runat="server" Text="Last Name"></asp:Label>
                     </td>
                     <td class="auto-style3">
-            <asp:TextBox ID="seausrLNtb" runat="server"></asp:TextBox></td>
-                   
+            <asp:TextBox ID="seausrLNtb" runat="server"></asp:TextBox></td>                   
                 </tr>
                     <tr>
                     <td class="auto-style2">
             <asp:Label ID="Label20" runat="server" Text="Project Name"></asp:Label>
                     </td>
                     <td class="auto-style3">
-             <asp:DropDownList ID="ddlseaprj" AppendDataBoundItems="true" DataTextField="usrprj" DataValueField="usrprj" runat="server"  AutoPostBack="True">
-                      
+             <asp:DropDownList ID="ddlseaprj" AppendDataBoundItems="true" DataTextField="usrprj" DataValueField="usrprj" runat="server"  AutoPostBack="True">                      
                         <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
-                   </asp:DropDownList></td>
-                   
+                   </asp:DropDownList></td>                   
                 </tr>
                     <tr>
                     <td class="auto-style2">
             <asp:Label ID="Label21" runat="server" Text="Company Name"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:DropDownList ID="ddlseacomp" AppendDataBoundItems="true" DataTextField="usrprj" DataValueField="usrprj" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ddlseacomp_SelectedIndexChanged">
-                 
+                        <asp:DropDownList ID="ddlseacomp" AppendDataBoundItems="true" DataTextField="usrprj" DataValueField="usrprj" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ddlseacomp_SelectedIndexChanged">                 
                         <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
-                   </asp:DropDownList></td>
-             
+                   </asp:DropDownList></td>             
                 </tr>
                     <tr>
                     <td class="auto-style2">
@@ -428,25 +418,21 @@
                         <asp:DropDownList ID="seausrdesgtb" AppendDataBoundItems="true" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ddlseacomp_SelectedIndexChanged">
                  
                         <asp:ListItem Selected="True" Value=" ">SELECT</asp:ListItem>
-                   </asp:DropDownList></td>
-                   
-                </tr>
-                    
+                   </asp:DropDownList></td>                   
+                </tr>                    
             </table>
             </div>
           <div class="btncol1">
                 
-         <asp:Button ID="Search"  runat="server" CssClass="button1" Text="SEARCH" OnClick="Search_Click" ToolTip="Fill only two fields for searching" /><br />
+         <asp:Button ID="Search"    runat="server" CssClass="button1" Text="SEARCH" OnClick="Search_Click" ToolTip="Fill only two fields for searching" /><br />
 
-         <asp:Button ID="Lodbtn"  runat="server"  CssClass="button1" Text="LOAD" OnClick="Lodbtn_Click" /><br />
+         <asp:Button ID="Lodbtn"    runat="server" CssClass="button1" Text="LOAD" OnClick="Lodbtn_Click" /><br />
 
          <asp:Button ID="Clearsrch" runat="server" CssClass="button1" Text="CLEAR" OnClick="Clearsrch_Click" />
 
         <!-- <asp:Button ID="GrpSRCH"  runat="server" CssClass="button1" Text="GROUP SEARCH" />  -->
 </div>
-   
        </div>
-       
             </div>
         <div class="grid" >
             <asp:GridView ID="GridView1" class="table1" runat="server"  AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
@@ -461,11 +447,9 @@
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>   </div>
         <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
-        <asp:TextBox ID="TextBox2" runat="server" Visible="False"></asp:TextBox>
-        
+        <asp:TextBox ID="TextBox2" runat="server" Visible="False"></asp:TextBox>        
             <asp:TextBox ID="logid" runat="server" Visible="False"></asp:TextBox>
             <asp:TextBox ID="logdesg" runat="server" Visible="False"></asp:TextBox>
-        </form>
-        
+        </form>        
     </body>
 </html>
